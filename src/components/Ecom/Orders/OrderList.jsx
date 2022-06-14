@@ -114,10 +114,10 @@ const OrderList = (props) => {
                                 </td>
                                 <td className="text-right">
                                   <Link
-                                    className="order-view-btn"
+                                    className="order-btn"
                                     to={`/order-view/${order.unique_id}`}
                                   >
-                                    View
+                                    Details
                                   </Link>
                                 </td>
                               </tr>

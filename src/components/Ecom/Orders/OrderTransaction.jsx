@@ -113,10 +113,10 @@ const OrderTransaction = (props) => {
                                       </td>
                                       <td className="text-center">
                                         <Link
-                                          className="order-view-btn"
+                                          className="order-btn"
                                           to={`/order-view/${transaction.unique_id}`}
                                         >
-                                          {t('view')}
+                                          {t('Details')}
                                         </Link>
                                       </td>
                                     </tr>

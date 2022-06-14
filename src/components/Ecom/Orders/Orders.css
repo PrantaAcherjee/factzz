@@ -95,23 +95,15 @@
   margin-top: 4em;
 } */
 
-.order-view-btn {
-  background: linear-gradient(to right, #73ccdc, #65c7f7, #5789d9);
-  border-color: var(--primary-color)!important;
-  padding: 9px 30px!important;
-  border-radius: 10px!important;
-  text-align: center;
-  color: var(--secondary-color)!important;
-  font-weight: 500!important;
-  font-size: 13px!important;
-  cursor: pointer;
+.order-btn {
+ color:rgb(143, 224, 21);
+ font-weight: bold;
+ text-decoration: underline;
+ font-family:monospace;
 }
 
-.order-view-btn:hover{
-  background: white;
-  color: blue;
-  font-weight: bold;
-  border: 1px solid blue;
+.order-btn:hover{
+  color: blue; 
 }
 
 /* Order Transaction CSS*/
