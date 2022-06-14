@@ -6,6 +6,7 @@ import {
   Container,
   InputGroup,
   FormControl,
+  Button,
 } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getReferralStart } from "../../store/actions/ReferralAction";
@@ -55,13 +56,28 @@ const ReferralsIndex = (props) => {
                 }
                 className="referrals-header-icons"
               />{" "}
-              {t("tell_friends_about")}{" "}
-              {configuration.get("configData.site_name")}
+              {t("tell_friends_about FACTZZ")}{" "}
+               
             </h4>
             <Row>
               <Col md={12}>
                 <div className="referrals-box">
                   <h3>{t("referral_code_note")}</h3>
+                  <div className="referrel-earn">
+                    <div><span className="earn-title">No of Users Joined</span><br />{props.referrals.data.total_referrals}</div>
+                    <div><span className="earn-title">Referral Earnings</span><br />{
+                     props.referrals.data
+                      .referral_earnings_formatted
+                        }</div>
+                    <div><span className="earn-title">Referee Earnings</span><br />{
+                        props.referrals.data
+                        .referee_earnings_formatted
+                         }</div>
+                    <div><span className="earn-title">Total</span><br />{props.referrals.data.total_formatted}</div>
+                    <div><span className="earn-title">Used</span><br />{props.referrals.data.used_formatted}</div>
+                    <div><span className="earn-title">Remaining</span>
+                    <br />{props.referrals.data.remaining_formatted}</div>
+                  </div>
                   <div className="referrals-sub-sec">
                     <Row className="align-items-center">
                       <Col md={6}>
@@ -80,9 +96,9 @@ const ReferralsIndex = (props) => {
                               text={props.referrals.data.referrals_signup_url}
                             >
                               <InputGroup.Text id="basic-addon2">
-                                <button className="btn btn-referal">
-                                  {t('copy_link')}
-                                </button>
+                                <Button variant='outline-danger'>
+                                  {t('copy_Url')}
+                                </Button>
                               </InputGroup.Text>
                             </CopyToClipboard>
                           </InputGroup>
@@ -155,70 +171,6 @@ const ReferralsIndex = (props) => {
                               </RedditShareButton>
                             </div>
                             <p>{t("reddit")}</p>
-                          </div>
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col md={6}>
-                        <div className="referrals-count-sec">
-                          <div className="referrals-card">
-                            <div className="referrals-left">
-                              <p>{t("total_referrals")}</p>
-                            </div>
-                            <div className="referrals-right">
-                              <p>{props.referrals.data.total_referrals}</p>
-                            </div>
-                          </div>
-                          <div className="referrals-card">
-                            <div className="referrals-left">
-                              <p>{t("referral_earnings")}</p>
-                            </div>
-                            <div className="referrals-right">
-                              <p>
-                                {
-                                  props.referrals.data
-                                    .referral_earnings_formatted
-                                }
-                              </p>
-                            </div>
-                          </div>
-                          <div className="referrals-card">
-                            <div className="referrals-left">
-                              <p>{t("referee_earnings")}</p>
-                            </div>
-                            <div className="referrals-right">
-                              <p>
-                                {
-                                  props.referrals.data
-                                    .referee_earnings_formatted
-                                }
-                              </p>
-                            </div>
-                          </div>
-                          <div className="referrals-card">
-                            <div className="referrals-left">
-                              <p>{t("total_credits")}</p>
-                            </div>
-                            <div className="referrals-right">
-                              <p>{props.referrals.data.total_formatted}</p>
-                            </div>
-                          </div>
-                          <div className="referrals-card">
-                            <div className="referrals-left">
-                              <p>{t("used_credits")}</p>
-                            </div>
-                            <div className="referrals-right">
-                              <p>{props.referrals.data.used_formatted}</p>
-                            </div>
-                          </div>
-                          <div className="referrals-card">
-                            <div className="referrals-left">
-                              <p>{t("remaining_credits")}</p>
-                            </div>
-                            <div className="referrals-right">
-                              <p>{props.referrals.data.remaining_formatted}</p>
-                            </div>
                           </div>
                         </div>
                       </Col>
