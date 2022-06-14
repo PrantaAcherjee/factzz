@@ -12,19 +12,19 @@ import {
 	fetchSingleProOwnerStart
  } from "../../../store/actions/ProductOwnerAction";
 import { translate, t } from "react-multi-lang";
+import {Paper,TextField,Grid,Box,Typography} from '@material-ui/core';
 
 const EditProduct = (props) => {
+const [productData, setProductData] = useState([]);
 
-	const [productData, setProductData] = useState([]);
-
-	useEffect(() => {
-		props.dispatch(
-			fetchSingleProOwnerStart({user_product_id: props.match.params.user_product_id})
-		);
-		props.dispatch(
-			fetchProductCategoriesStart()
-		);
-	}, []);
+useEffect(() => {
+props.dispatch(
+fetchSingleProOwnerStart({user_product_id: props.match.params.user_product_id})
+);
+props.dispatch(
+fetchProductCategoriesStart()
+);
+}, []);
 
 	useEffect(() => {
 		if(!props.singlePro.loading && props.singlePro.data.user_product){
@@ -64,10 +64,10 @@ const EditProduct = (props) => {
     props.dispatch(userProductsSaveStart(productData));
   };
 
-	return (
-		<>
-			<div className="add-product-sec">
-				<Container>
+return (
+	<>
+	<div className="add-product-sec">
+	<Container>
           <div className="ecom-navbar">
             <ul className="list-unstyled ecom-nav-link">
                 <Media as="li">
@@ -113,120 +113,155 @@ const EditProduct = (props) => {
             </ul>
           </div>
 					
-					<Form onSubmit={handleSubmit} className="add-product-form">
-					<h2>{t('edit_product')}</h2>
-						<Row>
-							<Col md={6}>
-								<div className="border-right-divider add-product-form-sec">
-									<Form.Group controlId="formBasicEmail">
-										<Form.Label>Name</Form.Label>
-										<Form.Control type="text" 
-										placeholder="Name" 
-										name="name" 
-										value={productData.name}
-										onChange={(event) => {
-											handleChange(event);
-										}} />
-									</Form.Group>
-									<Form.Group controlId="formBasicEmail">
-										<Form.Label>Quantity</Form.Label>
-										<Form.Control type="number" placeholder="Quantity" min="1"
-										name="quantity"
-										value={productData.quantity}
-										onChange={(event) => {
-											handleChange(event);
-										}}/>
-									</Form.Group>
-									<Form.Group controlId="formBasicEmail">
-										<Form.Label>Price</Form.Label>
-										<Form.Control type="number" placeholder="Price" min="1"
-										name="price"
-										value={productData.price}
-										onChange={(event) => {
-											handleChange(event);
-										}}/>
-									</Form.Group>
-									<Form.Group>
-										<Form.Label>Category</Form.Label>
-										<Form.Control
-											as="select"
-											className="mr-sm-2"
-											id="inlineFormCustomSelect"
-											custom
-											name="product_category_id"
-											value={productData.product_category_id}
-											onChange={(event) => {
-												handleChange(event);
-											}}
-										>
-											<option value="">Select Category</option>
-											{props.categories.loading ? 'loading' : 
-											props.categories.data.product_categories.map((category) => (
-												<option value={category.product_category_id}>{category.name}</option>
-											))}
-										</Form.Control>
-									</Form.Group>
-									<Form.Group>
-											<Form.Label>Sub Category</Form.Label>
-											<Form.Control
-													as="select"
-													className="mr-sm-2"
-													id="inlineFormCustomSelect"
-													custom
-													name="product_sub_category_id"
-													value={productData.product_sub_category_id}
-													onChange={(event) => {
-														handleChange(event);
-													}}
-											>
-													<option value="0">Select Sub Category</option>
-													{props.subCategories.loading ? null : 
-														props.subCategories.data.product_sub_categories.map((sub_category) => (
-															<option value={sub_category.product_sub_category_id}>{sub_category.name}</option>
-														))}
-											</Form.Control>
-									</Form.Group>
-								</div>
-							</Col>
-							<Col md={6}>
-								<div className="add-product-upload-file-sec">
-									<Form.Label>{t('select_image')}</Form.Label>
-									<Form.Group id="file-upload-form" className="uploader">
-											<Form.File id="file-upload" name="picture" accept="image/*" onChange={(event) => {
-														handleChange(event);
-													}}/>
-											<label for="file-upload" id="file-drag">
-													<div id="start">
-															<i className="fa fa-download" aria-hidden="true"></i>
-															<div>{t('select_a_image')}</div>
-													</div>
-											</label>
-											<p className="inuput-help">{t("upload_product_image_para")}</p>
-									</Form.Group>
-									<Form.Group controlId="exampleForm.ControlTextarea1">
-											<Form.Label>{t('description')}</Form.Label>
-											<Form.Control as="textarea" rows={3} className="height-auto" 
-											name="description"
-											value={productData.description}
-											onChange={(event) => {
-												handleChange(event);
-											}}/>
-									</Form.Group>
-									<div className="add-product-btn-sec">
-										
-											<Button type="submit" className="add-product-btn" disabled={props.productSave.buttonDisable}>
-												{!props.productSave.loading
-												? props.productSave.loadingButtonContent
-												: t("update")}
-											</Button>
-									</div>
-								</div>
-							</Col>
-						</Row>
-					</Form>
-				</Container>
-			</div>
-		</>
+	<Form onSubmit={handleSubmit} className="add-product-form">
+	<h2>{t('edit_product')}</h2>
+	<Row>
+	 <Col md={10} sm={12}>
+	 <Paper style={{padding:'5rem'}}>
+	 <Grid container spacing={3} alignItems="center">
+
+	 <Grid item sm={12}  lg={6}>
+	 <Typography variant="h3">Make the changes below</Typography>
+	 <Typography style={{margin:'2rem 0'}} variant="h6">We’re constantly trying to express ourselves and actualize our dreams. If you have the opportunity to play.
+         </Typography>
+	 </Grid>
+
+	 <Grid item xs={12} lg={6}> 
+	 <button type="submit" className="addToCart" disabled={props.productSave.buttonDisable}>
+	{!props.productSave.loading
+	? props.productSave.loadingButtonContent
+	: t("update")}
+	</button>
+	 </Grid>
+
+	</Grid>
+	 
+	 <Box>
+	 <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+		<Form.Group controlId="formBasicEmail"><Form.Label>Name</Form.Label>
+		<Form.Control type="text" placeholder="Name"  
+		name="name"
+		value={productData.name}
+		onChange={(event) => {
+		handleChange(event);
+		}}/>
+		</Form.Group>
+              </Grid>
+
+            <Grid item xs={12} sm={6}>
+	    <Form.Group controlId="formBasicEmail"><Form.Label>Quantity</Form.Label>
+		<Form.Control type="number" placeholder="Quantity"  
+		name="Quantity"
+		value={productData.quantity}
+		onChange={(event) => {
+		handleChange(event);
+		}}/>
+		</Form.Group>
+            </Grid>
+          </Grid>
+	 </Box>
+	 <Box>
+	 <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+            <Form.Group controlId="formBasicEmail">    
+             <Form.Label>Price</Form.Label>
+	     <Form.Control type="number" placeholder="Price"   min="1"
+	      name="price"
+	      value={productData.price}
+	       onChange={(event) => {
+		handleChange(event);
+		}}/>
+		</Form.Group>
+             </Grid>
+	     
+             <Grid item xs={12} sm={3}>
+		{/* blank */}
+             </Grid>
+          </Grid>
+	 </Box>
+
+	 <Box>
+	 <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+	    <Form.Group>
+		<Form.Label>Category</Form.Label>
+		<Form.Control
+		as="select"
+		className="mr-sm-2"
+		id="inlineFormCustomSelect"
+		custom
+	        name="product_category_id"
+		value={productData.product_category_id}
+		onChange={(event) => {
+		handleChange(event);
+		}}>
+		<option value="">Select Category</option>
+		{props.categories.loading ? 'loading' : 
+		props.categories.data.product_categories.map((category) => (
+		<option value={category.product_category_id}>{category.name}</option>))}
+		</Form.Control>
+		</Form.Group>
+              </Grid>
+
+            <Grid item xs={12} sm={6}>
+	    <Form.Group>
+		<Form.Label>Sub Category</Form.Label>
+		<Form.Control
+		as="select"className="mr-sm-2"
+		id="inlineFormCustomSelect"
+		custom
+		name="product_sub_category_id"
+		value={productData.product_sub_category_id}
+		onChange={(event) => {
+		handleChange(event);}}>
+		<option value="0">Select Sub Category</option>
+		{props.subCategories.loading ? null : 
+		props.subCategories.data.product_sub_categories.map((sub_category) => (
+		<option value={sub_category.product_sub_category_id}>{sub_category.name}</option>))}
+		</Form.Control>
+		</Form.Group>
+            </Grid>
+          </Grid>
+	 </Box>
+	 <Box>
+	 <Grid container spacing={3}>
+            <Grid item xs={12} sm={12}>
+	    <Form.Label>Description</Form.Label>
+		<Form.Group controlId="exampleForm.ControlTextarea1">
+	        <Form.Control as="textarea" rows={3}  className="height-auto" 
+	        name="description"
+	        value={productData.description}
+	        onChange={(event) => {
+	         handleChange(event);
+	         }}/>
+	        </Form.Group>
+            </Grid>
+	    <Grid item xs={12} sm={12}>
+	    <Form.Label>{t('select_image')}</Form.Label>
+	<Form.Group id="file-upload-form" className="uploader">
+	<Form.File id="file-upload" name="picture" accept="image/*" onChange={(event) => {
+	handleChange(event);
+	}}/>
+	<label for="file-upload" id="file-drag">
+	<div id="start">
+	<i className="fa fa-download" aria-hidden="true"></i>
+	<div>{t('select_a_image')}</div>
+	</div>
+	</label>
+	<p className="inuput-help">{t("upload_product_image_para")}</p>
+	</Form.Group>       
+            </Grid>
+          </Grid>
+	 </Box>
+	 
+	 </Paper>
+	 </Col>
+	</Row>						 
+	</Form>
+	</Container>
+	</div>
+	</>
 	);
 };
 

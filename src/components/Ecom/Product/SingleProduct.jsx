@@ -73,27 +73,21 @@ const SingleProduct = (props) => {
 												/>
 											</div>
 										) : null}
-
-										<img
-											className="quick-view-modal-img"
-											src={props.productView.data.user_product.picture}
-										/>
-									</div>
-									{props.productView.data.user_product.userProductFiles.map((product_picture) => (
-										<div>
-											<img
-												className="quick-view-modal-img"
-												src={product_picture.picture}
-											/>
-										</div>
-									))}
-								</Carousel>
-							</Col>
-							<Col md={6}>
-								<div className="quick-view-modal-info">
-									<Link to="#">
-										<h4>{props.productView.data.user_product.name}</h4>
-									</Link>
+<img className="quick-view-modal-img"
+src={props.productView.data.user_product.picture}/>
+</div>
+{props.productView.data.user_product.userProductFiles.map((product_picture) => (
+<div>
+<img className="quick-view-modal-img"
+src={product_picture.picture}/>
+</div>))}
+</Carousel>
+</Col>
+<Col md={6}>
+<div className="quick-view-modal-info">
+<Link to="#">
+<h4>{props.productView.data.user_product.name}</h4>
+</Link>
 									<div className="border-line">
 									</div>
 									<p className="quick-view-modal-desc">
@@ -110,20 +104,19 @@ const SingleProduct = (props) => {
 										</ins>
 									</div>
 									<div className="availability-sec">
-										<h5>{t('availability')}: <span>{props.productView.data.user_product.is_outofstock == 0 ? t('out_of_stock') : t('in_stock')}</span></h5>
-									</div>
-									<div className="availability-sec">
-										<h5>{t('quantity')}: <span>{props.productView.data.user_product.quantity}</span></h5>
-									</div>
+		<h5>{t('availability')}: <span>{props.productView.data.user_product.is_outofstock == 0 ? <span className="empty-stock">Out of stock</span>:<span className="full-stock">In stock</span>}</span></h5></div>
+		<div className="availability-sec">
+
+		<h5>{t('quantity')}: <span>{props.productView.data.user_product.quantity}</span></h5>
+		</div>
 									<div className="availability-sec">
 										<h5>
 											{t('seller')}:
-											<span className="pro-user-name text-nowrap">
-												<Link to={`/${props.productView.data.user_product.user.user_unique_id}`}>
-													@{props.productView.data.user_product.user.name}
-												</Link>
-											</span>
-										</h5>
+								<span className="pro-user-name text-nowrap">
+	<Link to={`/${props.productView.data.user_product.user.user_unique_id}`}>
+								@{props.productView.data.user_product.user.name}
+								</Link>
+	</span>	</h5>
 									</div>
 									<div className="rating-star-card">
 										<ul className="rating-star-sec">
@@ -159,9 +152,10 @@ const SingleProduct = (props) => {
 													<InputGroup.Text onClick={handleIncrement}><i className="fas fa-plus"></i></InputGroup.Text>
 												</InputGroup.Append>
 											</InputGroup>
-											<div className="banner-btn-sec">
-												<Button onClick={handleSubmit} className="quick-view-modal">{t('add_to_cart')}</Button>
-											</div>
+										<div className="banner-btn-sec">
+			<button onClick={handleSubmit} className="addToCart">{t('add_to_cart')}
+			</button>
+			</div>
 										</div>
 									) : (
 										<div className="quick-view-modal-add-to-cart">
