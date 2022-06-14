@@ -159,3 +159,9 @@ box-shadow: 0 2px 10px rgba(58, 56, 56, 0.15)!important;
 .earn-title{
 color: rgb(150, 220, 44);
 }
+
+@media (max-width:900px){
+.referrel-earn{
+grid-template-columns: auto;
+}
+}
