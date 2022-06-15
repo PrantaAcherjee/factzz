@@ -144,7 +144,7 @@ return (
 		name="name"
 		value={productData.name}
 		onChange={(event) => {
-		handleChange(event);
+		handleChange(event);		
 		}}/>
 		</Form.Group>
               </Grid>
