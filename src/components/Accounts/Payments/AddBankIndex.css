@@ -1,10 +1,6 @@
 .add-bank-box{
     background: var(--secondary-color);
     padding: 50px;
-    /* border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-    border: 5px solid rgba(0, 0, 0, 0.1); */
     border-radius: 10px;
     margin-bottom: 20px;
     border: 1px solid rgba(0, 0, 0, 0.05);

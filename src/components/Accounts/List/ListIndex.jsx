@@ -50,7 +50,7 @@ const ListIndex = (props) => {
                 <div className="user-lists">
                   <Link to={"/fans"}>
                     <div className="pull-left">
-                      <h3>{t("fans")}</h3>
+                      <h3><i class="fa-solid fa-user-plus"></i> {t("fans")}</h3>
                       <span className="user-list-count">
                         {props.lists.data.total_followers} {t("people")}
                       </span>
@@ -62,7 +62,7 @@ const ListIndex = (props) => {
                 <div className="user-lists">
                   <Link to={"/following"}>
                     <div className="pull-left">
-                      <h3>{t("following")}</h3>
+                      <h3><i class="fa-solid fa-people-group"></i> {t("following")}</h3>
                       <span className="user-list-count">
                         {props.lists.data.total_followings} {t("people")}
                       </span>
@@ -72,7 +72,7 @@ const ListIndex = (props) => {
                 <div className="user-lists">
                   <Link to={"/favorites"}>
                     <div className="pull-left">
-                      <h3>{t("favorites")}</h3>
+                      <h3><i class="fa-solid fa-heart"></i> {t("favorites")}</h3>
                       <span className="user-list-count">
                         {props.lists.data.total_fav_users} {t("people")}
                       </span>
@@ -83,7 +83,7 @@ const ListIndex = (props) => {
                 <div className="user-lists">
                   <Link to={"/bookmarks"}>
                     <div className="pull-left">
-                      <h3>{t("bookmarks")}</h3>
+                      <h3><i class="fa-solid fa-bookmark"></i> {t("bookmarks")}</h3>
                       <span className="user-list-count">
                         {props.lists.data.total_bookmarks} {t("posts")}
                       </span>
@@ -94,7 +94,7 @@ const ListIndex = (props) => {
                 <div className="user-lists">
                   <Link to={"/blocked-users"}>
                     <div className="pull-left">
-                      <h3>{t("blocked_users")}</h3>
+                      <h3><i class="fa-solid fa-ban"></i> {t("blocked_users")}</h3>
                       <span className="user-list-count">
                         {props.lists.data.blocked_users} {t("people")}
                       </span>
