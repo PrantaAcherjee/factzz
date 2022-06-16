@@ -72,7 +72,7 @@ const ListIndex = (props) => {
                 <div className="user-lists">
                   <Link to={"/favorites"}>
                     <div className="pull-left">
-                      <h3><i class="fa-solid fa-heart"></i> {t("favorites")}</h3>
+                      <h3><i class="fa-regular fa-heart"></i> {t("favorites")}</h3>
                       <span className="user-list-count">
                         {props.lists.data.total_fav_users} {t("people")}
                       </span>
@@ -83,7 +83,7 @@ const ListIndex = (props) => {
                 <div className="user-lists">
                   <Link to={"/bookmarks"}>
                     <div className="pull-left">
-                      <h3><i class="fa-solid fa-bookmark"></i> {t("bookmarks")}</h3>
+                      <h3><i class="fa-regular fa-bookmark"></i> {t("bookmarks")}</h3>
                       <span className="user-list-count">
                         {props.lists.data.total_bookmarks} {t("posts")}
                       </span>
