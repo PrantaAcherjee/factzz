@@ -44,7 +44,7 @@ const CardsIndex = (props) => {
     <>
       <div className="card-list-sec">
         <Container>
-          <h3 className="head-title">{t("your_cards")}</h3>
+          <h3 className="head-title">{t("Manage your cards")}</h3>
           {/* <Row>
             <Col sm={12} md={6} xl={4}>
               <div
@@ -71,6 +71,11 @@ const CardsIndex = (props) => {
                   <div className="card-list-box">
                     <h5 style={{color:'white'}} >XXXX XXXX XXXX {card.last_four}</h5>
                     <h5 className="text-warning my-2">{card.card_type}</h5>
+                    <h2 className="text-white"><i class="fa-brands fa-cc-visa px-2"/><i class="fa-brands fa-cc-mastercard px-2"/>
+                    <i class="fa-brands fa-cc-paypal px-2"></i>
+                    <i class="fa-brands fa-cc-stripe px-2"></i>
+                    </h2>
+
                     <div className="payment-bottom">
                       <div className="action-btn">
                         {card.is_default == 1 ? (
@@ -102,7 +107,7 @@ const CardsIndex = (props) => {
                                 )};}
                             }
                           >
-                            <Image  src="assets/images/icons/delete.png" className="svg-clone" />
+                           <i class="fa-solid fa-trash-can text-warning fs-4 fw-bold"></i>
                           </Link>
                       </div>
                       <Image
