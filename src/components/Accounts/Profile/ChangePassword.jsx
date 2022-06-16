@@ -58,11 +58,9 @@ const ChangePassword = (props) => {
               <div className="settings-personal-info-card">
                 <div className="settings-personal-info-header">
                   <h3>Change Password</h3>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.</p>
+                  <p>We will send you an email with the verification code.</p>
                 </div>
-
-
-
+ 
                 <div className="">
                   <Formik
                     innerRef={formikRef}
@@ -76,10 +74,11 @@ const ChangePassword = (props) => {
                   >
                     {({ errors, touched, setFieldValue, resetForm }) => (
                       <FORM noValidate className="edit-profile-form">
+
                         <Row>
-                          <Col xl={6}>
+                          <Col xl={7}>
                             <div className="form-group">
-                              <Form.Label>{t("old_password")}</Form.Label>
+                              <Form.Label>{t("Current Password")}</Form.Label>
                               <div class="input-group">
                                 <Field
                                   type={oldPasswordVisible ? "text" : "password"}
@@ -106,7 +105,7 @@ const ChangePassword = (props) => {
                               </div>
                             </div>
                           </Col>
-                          <Col md={6}>
+                          <Col md={7}>
                             <div className="form-group">
                               <Form.Label>{t("new_password")}</Form.Label>
                               <Field
@@ -123,16 +122,14 @@ const ChangePassword = (props) => {
                               />
                             </div>
                           </Col>
-                          <Col md={6}>
+                          <Col md={7}>
                             <div className="form-group">
-                              {/* <label>
-                                                                <h3>  {t("confirm_password")}</h3>
-                                                            </label> */}
-                              <Form.Label>{t("confirm_password")}</Form.Label>
+                              
+                              <Form.Label>{t("confirm new password")}</Form.Label>
                               <Field
                                 type="password"
                                 name="password_confirmation"
-                                placeholder={t("confirm_password_placeholder")}
+                                placeholder={t("Confirm_password_placeholder")}
                                 className={`no-padding form-control ${touched.password_confirmation && errors.password_confirmation ? "is-invalid" : ""}`}
                               />
                               <ErrorMessage
@@ -142,10 +139,9 @@ const ChangePassword = (props) => {
                               />
                             </div>
                           </Col>
-                        </Row>
-                        <Row>
-                          <Col sm={12} xs={12} md={12}>
-                            <div className="settings-btn-sec">
+
+                          <Col md={7}>
+                          <div>
                               <Button
                                 className="settings-submit-btn"
                                 type="submit"

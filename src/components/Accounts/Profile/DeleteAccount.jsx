@@ -52,22 +52,22 @@ const DeleteAccount = (props) => {
                             <div className="settings-personal-info-card">
                                 <div className="settings-personal-info-header">
                                     <h3>Delete Account</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.</p>
+                                    <p>Your account is going to br deleted. If you want to do that please type your password onece again. Thank you for staying with us. "FACTZZ"</p> 
                                 </div>
                                 <div className="">
-                                    <Formik
-                                        innerRef={formikRef}
-                                        initialValues={{ password: '' }}
-                                        validationSchema={deleteAccountSchema}
-                                        onSubmit={(values) => handleSubmit(values)}
+                                <Formik
+                                    innerRef={formikRef}
+                                    initialValues={{ password: '' }}
+                                     vaidationSchema={deleteAccountSchema}
+                                     onSubmit={(values) => handleSubmit(values)}
                                     >
-                                        {({ errors, touched, setFieldValue, resetForm }) => (
-                                            <FORM noValidate className="edit-profile-form">
-                                                <Row className="justify-content-center">
-                                                    <Col xl={6}>
-                                                        <div className="form-group">
-                                                            <Form.Label>{t("password")}</Form.Label>
-                                                            <div class="input-group">
+                                    {({ errors, touched, setFieldValue, resetForm }) => (
+                                      <FORM noValidate className="edit-profile-form">
+                                     <Row className="justify-content-center">
+                                     <Col xl={7}>
+                                     <div className="form-group">
+                                      <Form.Label>{t("Type Your Password Below")}</Form.Label>
+                                      <div class="input-group">
                                                                 <Field
                                                                     type={deletePasswordVisible ? "text" : "password"}
                                                                     name="password"
@@ -78,41 +78,36 @@ const DeleteAccount = (props) => {
                                                                 />
                                                                 <div class="input-group-append">
                                                                     <div
-                                                                        onClick={() => setDeletePasswordVisible(!deletePasswordVisible)}
-                                                                        className="btn input-group-text"
-                                                                        type="button">
-                                                                        {deletePasswordVisible ?
-                                                                            <i className="fas fa-eye-slash align-self-center"></i>
-                                                                            : <i className="fas fa-eye align-self-center"></i>}
-                                                                    </div>
-                                                                </div>
-                                                                <ErrorMessage
-                                                                    component="div"
-                                                                    name="password"
-                                                                    className="invalid-feedback mt-3"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </Col>
-                                                </Row>
-                                                <Row>
-                                                    <Col sm={12} xs={12} md={12}>
-                                                        <div className="settings-btn-sec-1">
-                                                            <Button
-                                                                className="settings-submit-btn"
-                                                                type="submit"
-                                                                disabled={props.deleteAcc.buttonDisable}
-                                                            >
-                                                                {props.deleteAcc.loadingButtonContent !== null
-                                                                    ? props.deleteAcc.loadingButtonContent
-                                                                    : t("delete_account")}
-                                                            </Button>
-                                                        </div>
-                                                    </Col>
-                                                </Row>
-                                            </FORM>
-                                        )}
-                                    </Formik>
+        onClick={() => setDeletePasswordVisible(!deletePasswordVisible)}
+        className="btn input-group-text"
+        type="button">
+        {deletePasswordVisible ?
+         <i className="fas fa-eye-slash align-self-center"></i>
+         : <i className="fas fa-eye align-self-center"></i>}
+         </div>
+         </div>
+         <ErrorMessage
+         component="div"
+         name="password"
+         className="invalid-feedback mt-3" />
+        </div>
+        </div>
+        </Col>
+         <Col xl={7}>
+         <div className="settings-btn-sec-1">
+         <Button
+        className="settings-submit-btn"
+         type="submit"
+        disabled={props.deleteAcc.buttonDisable} >
+        {props.deleteAcc.loadingButtonContent !== null
+        ? props.deleteAcc.loadingButtonContent
+        : t("delete_account")}
+        </Button>
+        </div>
+         </Col>
+        </Row>                                 
+        </FORM> )}
+        </Formik>
                                 </div>
                             </div>
                         </div>

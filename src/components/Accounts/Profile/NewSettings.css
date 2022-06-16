@@ -156,7 +156,7 @@
     font-size:1.4em!important;
     color: var(--secondary-color)!important;
     font-weight: 600!important;
-    background: var(--primary-color)!important;
+    background: linear-gradient(310deg, rgb(33, 82, 255), rgb(33, 212, 253));
     border-radius: 5px!important;
     transition: opacity .15s ease,background-color .15s ease,box-shadow .15s ease;
     display: block;
@@ -364,29 +364,18 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     border: 1px solid var(--primary-color)!important;
-    padding: 8px 30px!important;
+    padding: 10px 30px!important;
     font-size:1.4em!important;
     color: var(--secondary-color);
     font-weight: 500!important;
-    background: var(--primary-color)!important;
-    transition: opacity .15s ease,background-color .15s ease,box-shadow .15s ease;
+    background: linear-gradient(310deg, rgb(20, 23, 39), rgb(58, 65, 111));
     display:inline-block;
     white-space: nowrap;
     text-align: center;
+    width:100%
 }
 
-.settings-submit-btn:hover{
-    color: var(--secondary-color)!important;
-    background: var(--primary-color)!important;
-    border: 1px solid var(--primary-color)!important;
-}
-
-.settings-btn-sec{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 3em;
-}
+ 
 
 .amount-display-btn{
     background-color: #F5F7FB;
