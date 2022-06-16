@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "./DashboardContentCreator.css";
-import { Bar } from "react-chartjs-2";
+import { Radar } from "react-chartjs-2";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchContentCreatorDashboardStart } from "../../store/actions/UserAction";
@@ -131,14 +131,18 @@ const DashboardContentCreator = (props) => {
               <Col md={6}>
                 <div className="dashboard-box">
                   <h3>{t('last_x_day_revenue')}</h3>
+                  {/* chart section  */}
                   <div className="dashboard-chart-sec">
                     <div>
-                      <Bar
+                      <Radar
                         data={state}
                         options={{
                           title: {
                             display: true,
+                            borderColor: 'rgb(75, 192, 192)',
+                             
                             text: t('last_x_day_revenue'),
+                          
                             fontSize: 20,
                           },
                           legend: {

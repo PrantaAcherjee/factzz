@@ -5,13 +5,13 @@
 }
 
 .card-list-box {
-    background: var(--secondary-color);
-    padding: 10px;
+    background: rgb(52, 71, 103);
+    padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-    border: 5px solid rgba(0, 0, 0, 0.1);
+    border: 5px solid rgb(52, 71, 103);
 }
+ 
 
 .cursor-pointer-link {
     cursor: pointer;

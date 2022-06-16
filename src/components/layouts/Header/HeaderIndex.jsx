@@ -112,10 +112,7 @@ const HeaderIndex = (props) => {
                 className="main-header-menu icon-with-round-hover m-current"
                 onClick={() => setIsVisible(false)}
               >
-                {/* <Image
-                  src={window.location.origin + "/assets/images/icons/home.svg"}
-                /> */}
-                {/* <i className='bx bx-home bx-lg'></i> */}
+                 
                 <Image
                   src={
                     window.location.origin +
@@ -128,12 +125,7 @@ const HeaderIndex = (props) => {
                 className="main-header-menu icon-with-round-hover m-current"
                 onClick={() => setIsVisible(false)}
               >
-                {/* <Image
-                  src={
-                    window.location.origin + "/assets/images/icons/explore.png"
-                  }
-                /> */}
-                {/* <i className='bx bx-compass bx-lg'></i> */}
+                 
                 <Image
                   src={
                     window.location.origin +
@@ -149,13 +141,6 @@ const HeaderIndex = (props) => {
                   className="main-header-menu icon-with-round-hover display-hide"
                   onClick={() => setIsVisible(false)}
                 >
-                  {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/live-streaming.png"
-                    }
-                  /> */}
-                  {/* <i className='bx bx-tv bx-lg'></i> */}
                   <Image
                     src={
                       window.location.origin +
@@ -270,10 +255,7 @@ const HeaderIndex = (props) => {
                 aria-expanded="false"
                 onClick={() => setIsVisible(!isVisible)}
               >
-                {/* <Image
-                  src={window.location.origin + "/assets/images/icons/user.svg"}
-                /> */}
-                {/* <i className='bx bx-user-circle bx-lg'></i> */}
+                
                 <Image
                   src={
                     window.location.origin +
@@ -282,14 +264,6 @@ const HeaderIndex = (props) => {
                 />
               </Button>
             </nav>
-
-            {/* {localStorage.getItem("is_document_verified") == 3 ? (
-                  <div className="pl-2">
-                    <Alert key={1} variant='danger'>
-                      The user updated documents decined by Admin.
-                    </Alert>
-                  </div>
-                ) : null} */}
           </Container>
         </header>
       ) : (

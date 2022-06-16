@@ -69,17 +69,17 @@ const CardsIndex = (props) => {
               {cards.data.cards.map((card) => (
                 <Col sm={12} md={6} xl={4}>
                   <div className="card-list-box">
-                    <h5 className="mb-4">XXXX XXXX XXXX {card.last_four}</h5>
-                    <h5 className="text-muted">{card.card_type}</h5>
+                    <h5 style={{color:'white'}} >XXXX XXXX XXXX {card.last_four}</h5>
+                    <h5 className="text-warning my-2">{card.card_type}</h5>
                     <div className="payment-bottom">
                       <div className="action-btn">
                         {card.is_default == 1 ? (
-                          <p className="card-link-text text-success">
+                          <p className="card-link-text text-success fw-bold">
                             {t("default_card")}
                           </p>
                         ) : (
                           <Link
-                            className="card-link-text text-info"
+                            className="card-link-text text-info fw-bold"
                             onClick={() =>
                               props.dispatch(
                                 selectDefaultCardStart({
@@ -102,7 +102,7 @@ const CardsIndex = (props) => {
                                 )};}
                             }
                           >
-                            <Image src="assets/images/icons/delete.png" className="svg-clone" />
+                            <Image  src="assets/images/icons/delete.png" className="svg-clone" />
                           </Link>
                       </div>
                       <Image
