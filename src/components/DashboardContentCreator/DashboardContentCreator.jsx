@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "./DashboardContentCreator.css";
-import { Line } from "react-chartjs-2";
+import { Radar } from "react-chartjs-2";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchContentCreatorDashboardStart } from "../../store/actions/UserAction";
@@ -161,7 +161,7 @@ const DashboardContentCreator = (props) => {
                   <h3>{t('last_x_day_revenue')}</h3>
                   <div className="dashboard-chart-sec">
                     {/* <div> */}
-                    <Line data={state} legend={legend} options={options} />
+                    <Radar data={state} legend={legend} options={options} />
                     {/* </div> */}
                   </div>
                 </div>

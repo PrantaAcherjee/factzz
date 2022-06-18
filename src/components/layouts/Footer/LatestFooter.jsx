@@ -48,7 +48,7 @@ const LatestFooter = (props) => {
                 <Row className="justify-content-center">
                   {configuration.get("configData.contact_address") ? (
                     <Col xl={4} md={4} sm={6} xs={6} className="mb-30">
-                      <div className="single-cta resp-mrg-btn-xs">
+                      {/* <div className="single-cta resp-mrg-btn-xs">
                         <i className="fas fa-map-marker-alt"></i>
                         <div className="cta-text">
                           <h4>Find us</h4>
@@ -56,14 +56,14 @@ const LatestFooter = (props) => {
                             {configuration.get("configData.contact_address")}
                           </span>
                         </div>
-                      </div>
+                      </div> */}
                     </Col>
                   ) : (
                     ""
                   )}
                   {configuration.get("configData.contact_mobile") ? (
                     <Col xl={4} md={4} sm={6} xs={6} className="mb-30">
-                      <div className="single-cta footer-aligin-center resp-mrg-btn-xs">
+                      {/* <div className="single-cta footer-aligin-center resp-mrg-btn-xs">
                         <i className="fas fa-phone"></i>
                         <div className="cta-text">
                           <h4>Call us</h4>
@@ -71,14 +71,14 @@ const LatestFooter = (props) => {
                             {configuration.get("configData.contact_mobile")}
                           </span>
                         </div>
-                      </div>
+                      </div> */}
                     </Col>
                   ) : (
                     ""
                   )}
                   {configuration.get("configData.contact_email") ? (
                     <Col xl={4} md={4} sm={6} xs={6} className="mb-30">
-                      <div className="single-cta footer-aligin-last">
+                      {/* <div className="single-cta footer-aligin-last">
                         <i className="far fa-envelope-open"></i>
                         <div className="cta-text">
                           <h4>Mail us</h4>
@@ -86,7 +86,7 @@ const LatestFooter = (props) => {
                             {configuration.get("configData.contact_email")}
                           </span>
                         </div>
-                      </div>
+                      </div> */}
                     </Col>
                   ) : (
                     ""
@@ -94,9 +94,10 @@ const LatestFooter = (props) => {
                 </Row>
               </div>
               : ""}
+              {/* start logo */}
             <div className="footer-content pt-5 pb-5">
               <Row>
-                <Col xl={4} lg={3} md={5} sm={5} xs={6} className="mb-30 footer-center">
+                <Col xl={4} lg={3} className="mb-30 footer-center">
                   <div className="footer-widget logo-container">
                     <div className="footer-logo">
                       <Link to="#">
@@ -109,7 +110,8 @@ const LatestFooter = (props) => {
                     </div>
                   </div>
                 </Col>
-                <Col xl={4} lg={3} md={5} sm={5} xs={5} className="mb-30 footer-left">
+                {/* start path  */}
+                <Col xl={4} lg={3} md={6} sm={12}   xs={12} className="mb-30 footer-left">
                   <div className="footer-widget">
                     {/* <div className="footer-widget-heading">
                       <h3>{configuration.get("configData.site_name")}</h3>
@@ -149,7 +151,8 @@ const LatestFooter = (props) => {
                     </ul>
                   </div>
                 </Col>
-                <Col xl={4} lg={4} md={6} sm={6} xs={6} className="footer-right">
+                {/* social icons  */}
+                <Col xl={4} lg={4} md={6} sm={8} xs={12} className="footer-right">
                   <div className="footer-widget">
                     <div className="footer-social-icon">
                       <ul className="footer-social-link-sec list-unstyled social-media">

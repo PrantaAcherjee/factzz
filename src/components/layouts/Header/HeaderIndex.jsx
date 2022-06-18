@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Container, Image, Media, Button, Badge, Form } from "react-bootstrap";
+import { Container, Image, Media, Button, Badge, Form,Row,Col} from "react-bootstrap";
 import configuration from "react-global-configuration";
 import VerifiedBadgeNoShadow from "../../Handlers/VerifiedBadgeNoShadow";
 // import SideBarIndex from "../SideBar/SideBarIndex";
@@ -119,32 +119,26 @@ const HeaderIndex = (props) => {
   return (
     <>
       {localStorage.getItem("userId") ? (
+       <Row style={{paddingRight:''}}>
+        <Col xs={12} sm={12}>
         <header className="main-header">
           <Container>
             <nav className="main-header-menu">
-              <Link
+             <div>
+            <div>
+            <Link
                 to={"/home"}
                 className="main-header-menu icon-with-round-hover m-current"
                 onClick={() => setIsVisible(false)}
               >
-                {/* <Image
-                  src={
-                    window.location.origin +
-                    "/assets/images/logo/Logo PNG.png"
-                  }
-                /> */}
-                <div className="path">
-                  <i class="fas fa-home"></i>
-                  {/* <p>{slas[0]}</p> */}
-                  <p>{char[0]}</p>
-                </div>
-              </Link>
-              <div className="header__right">
-                <div className="search-row">
-                  {/* <Link to="#" className="search-button">
-                  {t("home")}
-                </Link> */}
-                  <div className="search-container">
+                <div>
+                <i class="fas fa-home"></i>
+                 <span>{char[0]}</span>
+                 </div>
+                  </Link>
+            </div>
+                       
+              <div className="search-container">
                     <Form className="search-box">
                       <input
                         className="search-text"
@@ -156,7 +150,25 @@ const HeaderIndex = (props) => {
                         <i className="fas fa-search"></i>
                       </Link>
                     </Form>
-                  </div>
+              </div>
+                
+             </div>
+              
+              <div className="header__right">
+                <div className="search-row">
+                  {/* <div className="search-container">
+                    <Form className="search-box">
+                      <input
+                        className="search-text"
+                        type="text"
+                        placeholder="Search User"
+                        onChange={handleSearch}
+                      />
+                      <Link to="#" className="search-btn">
+                        <i className="fas fa-search"></i>
+                      </Link>
+                    </Form>
+                  </div> */}
                   {show && (
                     <div className="search-dropdown-sec">
                       <ul className="list-unstyled search-dropdown-list-sec">
@@ -197,30 +209,12 @@ const HeaderIndex = (props) => {
                   )}
                 </div>
                 <div className="links">
-                  <Button
-                    type="button"
-                    className="main-header-menu icon-with-round-hover"
-                    to="#"
-                    data-drawer-trigger
-                    aria-controls="drawer-name"
-                    aria-expanded="false"
-                    onClick={() => setIsVisible(!isVisible)}
-                  >
-                    {/* <Image
-                  src={window.location.origin + "/assets/images/icons/user.svg"}
-                /> */}
-                    <i className='fas fa-user'></i>
-                    <p>Sign In</p>
-                    {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/new/user-new.svg"
-                    }
-                  /> */}
-                  </Button>
-                  {/* <Button onClick={props.handleDrawerClose}>Menu</Button> */}
+                <Link to={"/"}  className="main-header-menu icon-with-round-hover m-current">                                
+                    <i class="fa-solid fa-circle-user"></i>                                    
+                   </Link>
+  
                   <Link
-                    to={"/edit-profile"}
+                    to={"/inbox"}
                     className="main-header-menu icon-with-round-hover m-current"
                     onClick={() => setIsVisible(false)}
                   >
@@ -230,7 +224,7 @@ const HeaderIndex = (props) => {
                       "/assets/images/logo/Logo PNG.png"
                     }
                   /> */}
-                    <i class="fas fa-gear"></i>
+                    <i class="fa-regular fa-envelope"></i>
                     {/* <i class="fas fa-home"></i> */}
                   </Link>
                   {/* <Link
@@ -286,6 +280,27 @@ const HeaderIndex = (props) => {
                       ""
                     )}
                   </Link>
+                  <Button
+                    type="button"
+                    style={{marginLeft:'6px'}}
+                    className="main-header-menu icon-with-round-hover"
+                    to="#"
+                    data-drawer-trigger
+                    aria-controls="drawer-name"
+                    aria-expanded="false"
+                    onClick={() => setIsVisible(!isVisible)}
+                  >
+                    {/* <Image
+                  src={window.location.origin + "/assets/images/icons/user.svg"}
+                /> */}
+                    <i class="fa-solid fa-circle-chevron-down"></i>                   
+                    {/* <Image
+                    src={
+                      window.location.origin +
+                      "/assets/images/icons/new/user-new.svg"
+                    }
+                  /> */}
+                  </Button>
                 </div>
               </div>
             </nav>
@@ -299,8 +314,12 @@ const HeaderIndex = (props) => {
                 ) : null} */}
           </Container>
         </header>
+        </Col>
+       </Row>
       ) : (
-        <header className="main-header">
+        <Row>
+          <Col xs={12} sm={12}>
+          <header className="main-header">
           <Container>
             <nav className="main-header-menu">
               <Link
@@ -341,6 +360,8 @@ const HeaderIndex = (props) => {
             </nav>
           </Container>
         </header>
+          </Col>
+        </Row>       
       )}
       {isVisible && localStorage.getItem("userId") ? (
         <div className="drawer" id="drawer-name" data-drawer-target>
@@ -445,6 +466,22 @@ const HeaderIndex = (props) => {
                   />{" "}
                   {t("my_profile")}
                 </Link>
+                <Link
+                  to={"/explore"}
+                  className="sidebar-menus-item"
+                  data-name="Profile"
+                  onClick={() => setIsVisible(!isVisible)}
+                >
+                  {/* <Image
+                    src={
+                      window.location.origin +
+                      "/assets/images/icons/Profile.png"
+                    }
+                    alt="Factzz"
+                  />{" "}
+                  {t("my_profile")} */}
+                 <i class="fa-solid fa-jet-fighter-up"></i>Explore More
+                </Link>
 
                 {localStorage.getItem("is_content_creator") != 2 ? (
                   <Link
@@ -463,7 +500,8 @@ const HeaderIndex = (props) => {
                     {t("become_a_content_creator")}
                   </Link>
                 ) : (
-                  <Link
+                  <>
+                   <Link
                     to={"/dashboard"}
                     className="sidebar-menus-item"
                     data-name="Profile"
@@ -478,6 +516,11 @@ const HeaderIndex = (props) => {
                     />{" "}
                     {t("dashboard")}
                   </Link>
+                  <Link to={"/add-post"}  className="sidebar-menus-item">
+                  <i class="fa-solid fa-file-circle-plus"></i>Add Post
+                  </Link>
+                  
+                  </>                
                 )}
 
                 <Link

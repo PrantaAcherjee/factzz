@@ -1036,9 +1036,7 @@ Version: 1.0
   .sign-in.form-section .sign-in-logo img{
     max-width: 180px;
   }
-  .footer-logo img {
-    max-width: 120px!important;
-  }
+  
   .latest-footer-sec{
     padding-bottom: 4.7em;
   }

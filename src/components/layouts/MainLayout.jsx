@@ -46,12 +46,12 @@ const MainLayout = (props) => {
   };
   console.log(isLoggedIn)
   return (
-    <div className={`${themeState ? "dark-mode" : ""}`} >
+    <div style={{overflow:'hidden'}}  className={`${themeState ? "dark-mode" : ""}`} >
       <div className="app-admin-wrap layout-sidebar-large">
         <Notify position="TopRight" />
         <HeaderIndex toggleTheme={toggleClass} />
         {/* <SideNav /> */}
-        <div className="main-content-wrap sidenav-open d-flex flex-column">
+        <div style={{marginTop:'1.5rem'}} className="main-content-wrap sidenav-open d-flex flex-column">
           <div className="main-wrap-sec">
             {React.cloneElement(props.children)}
           </div>

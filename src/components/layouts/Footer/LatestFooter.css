@@ -46,9 +46,7 @@
   align-items: center;
   justify-content: flex-start;
 }
-.footer-logo img {
-  max-width: 200px;
-}
+ 
 .footer-text p {
   margin-bottom: 14px;
   font-size: 14px;

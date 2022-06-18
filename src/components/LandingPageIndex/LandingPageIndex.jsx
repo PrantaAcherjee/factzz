@@ -473,7 +473,7 @@ const LandingPageIndex = (props) => {
                                 <ErrorMessage component={"div"} name="name" className='text-danger text-right' />
                               </div>
 
-                              <div class="form-group">
+                              <div className="form-group">
                                 <Field
                                   type="text"
                                   name="username"
@@ -534,7 +534,7 @@ const LandingPageIndex = (props) => {
 
                               {configuration.get("configData.is_referral_enabled") == 1 ? (
                                 <>
-                                  <div class="form-group">
+                                  <div className="form-group">
                                     <Field
                                       type="text"
                                       name="referral_code"
@@ -565,10 +565,10 @@ const LandingPageIndex = (props) => {
                                   <Link to={`/page/privacy`} target="_blank">
                                     {t("privacy_policy")}
                                   </Link>
-                                  .
+                                  
                                 </p>
                               </div>
-
+                                <br/>
                               <Button
                                 type="submit"
                                 className="btn gradient-btn gradientcolor"

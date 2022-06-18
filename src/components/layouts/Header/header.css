@@ -1,5 +1,5 @@
 .main-header {
-        height: 5.2rem;
+        height: 8rem;
       }
       .main-header .container {
         height: 100%;
@@ -63,3 +63,10 @@
         margin-left: 0.6rem;
         margin-bottom: 0.4rem;
       }
+     
+@media(max-width:450px){
+   .links{
+    margin-left: 0rem;  
+   }  
+}
+     
