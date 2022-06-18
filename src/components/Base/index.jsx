@@ -216,11 +216,11 @@ class App extends Component {
     return (
       <>
         <Helmet>
-          <title>{configuration.get("configData.site_name")}</title>
+          <title>Factzz</title>
           <link
             rel="icon"
             type="image/png"
-            href={configuration.get("configData.site_icon")}
+            href="/assets/images/logo/App logo-02.png"
           // sizes="16x16"
           />
         </Helmet>

@@ -174,7 +174,7 @@ const AddBankIndex = (props) => {
 
                 <div className="edit-save">
                   <Button
-                    className="btn gradient-btn gradientcolor addBank"
+                    className="btn gradient-btn gradientcolor addBankheader"
                     type="submit"
                     disabled={props.bankAccount.buttonDisable}
                   >

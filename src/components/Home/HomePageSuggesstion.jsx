@@ -55,15 +55,16 @@ const HomePageSuggesstion = (props) => {
 
   return (
       <Row>
-        <Col sm={12} xl={5} xs={12} md={6} className="mrg-btm-xs">
+        {/* <Col sm={12} xl={5} xs={12} md={6} className="mrg-btm-xs">
           <h4 className="suggestions text-dark">{t("suggestions")}</h4>
-        </Col>
-        <Col sm={12} xl={7} xs={12} md={6} className="mrg-btm-xs">
+        </Col> */}
+        {/* <Col sm={12} xl={7} xs={12} md={6} className="mrg-btm-xs">
           <div className="controls pull-right ">
 
           </div>
-        </Col>
+        </Col> */}
         <Col sm={12} xl={12} xs={12} md={12}>
+        <h4 className="suggestions text-dark">{t("suggestions")}</h4>
           {props.postSug.loading ? (
             <div className="">
             {/* <CommonCenterLoader /> */} {t('loading')}

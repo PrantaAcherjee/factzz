@@ -29,6 +29,8 @@ import { getFcmToken, onMessageListener } from '../../firebase';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { ConnectedFocusError } from 'focus-formik-error';
+import "./LandingPage.css"
+// import logo from "/assets/images/logo/Logo PNG.png"
 
 const LandingPageIndex = (props) => {
   const [show, setShow] = useState("login");
@@ -222,7 +224,7 @@ const LandingPageIndex = (props) => {
   return (
     <>
       <div className="login-section">
-        <Container>
+        <Container className="login__container">
           <Row>
             <Col
               lg={6}
@@ -265,22 +267,38 @@ const LandingPageIndex = (props) => {
                 </div>
               </div> */}
               <div className="auth-img-left-sec">
-                <Image
+                {/* <Image
                   src={
                     window.location.origin +
-                    "/assets/images/auth-img.jpg"
+                    "/assets/images/shapes/pattern-lines.svg"
                   }
                   alt=""
-                  className="auth-left-img"
-                />
+                  className="pattern"
+                /> */}
+                <div className="content">
+                  <Image
+                    src={show === "login" ?
+                      window.location.origin + "/assets/images/illustrations/chat.png" :
+                      show === "forgotpassword" ? window.location.origin + "/assets/images/illustrations/lock.png" : window.location.origin + "/assets/images/illustrations/rocket-dark.png"
+                    }
+                    alt="login"
+                    className="auth-left-img"
+                  />
+                  <div className="text__content">
+                    <h2>{show === "login" ? "Attention is the new currency" : show === "forgotpassword" ? "Be Protective with password" : "Your journey starts here"}</h2>
+                    <h5>{show === "login" ? "The more effortless the writing looks, the more effort the writer actully put into the process." : show === "forgotpassword" ? "Just as it takes a company to sustain a product, it takes a community to sustain a protocol" : "Just as it takes a company to sustain a product, it takes a community to stustain a protocol."}</h5>
+                  </div>
+                </div>
               </div>
             </Col>
             <Col lg={6} xl={6} md={12} sm={12} xs={12}>
               <div className="sign-in form-section">
                 <Link to="#" aria-current="page" className="sign-in-logo">
                   <Image
-                    src={configuration.get("configData.site_logo")}
+                    // src={configuration.get("configData.site_logo")}
+                    src="/assets/images/logo/Logo PNG.png"
                     width="237"
+                    alt="logo"
                   />
                 </Link>
                 <p className="login-tagline">
@@ -334,7 +352,7 @@ const LandingPageIndex = (props) => {
                       <span>or</span>
                     </span>
                   ) : (
-                    <span classsName="login-or-hide"></span>
+                    <span className="login-or-hide"></span>
                   )}
                   <div id="main">
                     <div id="first">
@@ -423,7 +441,8 @@ const LandingPageIndex = (props) => {
                                 >
                                   {" "}
                                   {t("signup_for")}{" "}
-                                  {configuration.get("configData.site_name")}
+                                  {/* {configuration.get("configData.site_name")} */}
+                                  FACTZZ
                                 </Link>
                               </p>
                             </Form>
@@ -574,7 +593,8 @@ const LandingPageIndex = (props) => {
                                 >
                                   {" "}
                                   {t("login_for")}{" "}
-                                  {configuration.get("configData.site_name")}
+                                  {/* {configuration.get("configData.site_name")} */}
+                                  FACTZZ
                                 </Link>
                               </p>
                             </Form>
@@ -626,7 +646,8 @@ const LandingPageIndex = (props) => {
                                 >
                                   {" "}
                                   {t("login_for")}{" "}
-                                  {configuration.get("configData.site_name")}
+                                  {/* {configuration.get("configData.site_name")} */}
+                                  FACTZZ
                                 </Link>
                               </p>
                             </Form>

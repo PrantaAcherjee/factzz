@@ -73,7 +73,7 @@ const ResetPassword = (props) => {
             >
               <div className="auth-img-left-sec">
                 <Image
-                  src={window.location.origin + "/assets/images/auth-img.jpg"}
+                  src={window.location.origin + "/assets/images/chat.png"}
                   alt=""
                   className="auth-left-img"
                 />
@@ -169,7 +169,8 @@ const ResetPassword = (props) => {
                               <Link className="signup" to={"/"} id="signin">
                                 {" "}
                                 {t("login_for")}{" "}
-                                {configuration.get("configData.site_name")}
+                                {/* {configuration.get("configData.site_name")} */}
+                                FACTZZ
                               </Link>
                             </p>
                           </Form>

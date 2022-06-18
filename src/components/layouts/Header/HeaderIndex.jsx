@@ -1,17 +1,20 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Container, Image, Media, Button, Badge } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Container, Image, Media, Button, Badge, Form } from "react-bootstrap";
 import configuration from "react-global-configuration";
 import VerifiedBadgeNoShadow from "../../Handlers/VerifiedBadgeNoShadow";
 // import SideBarIndex from "../SideBar/SideBarIndex";
 import io from "socket.io-client";
-import { updateNotificationCount } from "../../../store/actions/NotificationAction";
-import Alert from "react-bootstrap/Alert";
+// import { updateNotificationCount } from "../../../store/actions/NotificationAction";
+// import Alert from "react-bootstrap/Alert";
 import { connect } from "react-redux";
 import { translate, t } from "react-multi-lang";
 import CreateContentCreatorModal from "../../helper/CreateContentCreatorModal";
 import LoginModal from "../../Model/LoginModal";
 import SignupModal from "../../Model/SignupModal";
+import "./header.css"
+import { searchUserStart } from "../../../store/actions/HomeAction";
+import CommonCenterLoader from "../../Loader/CommonCenterLoader";
 
 let chatSocket;
 
@@ -21,7 +24,15 @@ const HeaderIndex = (props) => {
 
   const [loginModal, setLoginModal] = useState(false);
   const [signupModal, setSignupModal] = useState(false);
-
+  const [show, toggleShow] = useState(false);
+  const handleSearch = (event) => {
+    if (event.currentTarget.value === "") {
+      toggleShow(false);
+    } else {
+      toggleShow(true);
+      props.dispatch(searchUserStart({ key: event.currentTarget.value }));
+    }
+  };
   useEffect(() => {
     console.log("Inside");
     let chatSocketUrl = configuration.get("configData.chat_socket_url");
@@ -101,6 +112,10 @@ const HeaderIndex = (props) => {
     setLoginModal(false);
     setSignupModal(true);
   };
+  const { pathname } = useLocation()
+  // const slas = pathname.split('')
+  const char = pathname.split(' ')
+  console.log();
   return (
     <>
       {localStorage.getItem("userId") ? (
@@ -112,158 +127,176 @@ const HeaderIndex = (props) => {
                 className="main-header-menu icon-with-round-hover m-current"
                 onClick={() => setIsVisible(false)}
               >
-                 
-                <Image
-                  src={
-                    window.location.origin +
-                    "/assets/images/icons/new/home-new.svg"
-                  }
-                />
-              </Link>
-              <Link
-                to={"/explore"}
-                className="main-header-menu icon-with-round-hover m-current"
-                onClick={() => setIsVisible(false)}
-              >
-                 
-                <Image
-                  src={
-                    window.location.origin +
-                    "/assets/images/icons/new/compass-new.svg"
-                  }
-                />
-              </Link>
-
-              {configuration.get("configData.is_one_to_many_call_enabled") ==
-              1 ? (
-                <Link
-                  to={"/live-videos"}
-                  className="main-header-menu icon-with-round-hover display-hide"
-                  onClick={() => setIsVisible(false)}
-                >
-                  <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/new/tv-new.svg"
-                    }
-                  />
-                </Link>
-              ) : (
-                ""
-              )}
-
-              {localStorage.getItem("is_content_creator") == 2 ? (
-                <Link
-                  to={"/add-post"}
-                  className="main-header-menu icon-with-round-hover"
-                  onClick={() => setIsVisible(false)}
-                >
-                  {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/create-post.svg"
-                    }
-                  /> */}
-                  {/* <i className='bx bx-plus-circle bx-lg'></i> */}
-                  <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/new/plus-square-new.svg"
-                    }
-                  />
-                </Link>
-              ) : (
-                <Link
-                  className="main-header-menu icon-with-round-hover"
-                  onClick={() => setCreateContentCreatorModal(true)}
-                >
-                  {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/create-post.svg"
-                    }
-                  /> */}
-                  <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/new/plus-square-new.svg"
-                    }
-                  />
-                </Link>
-              )}
-
-              <Link
-                to={"/inbox"}
-                className="main-header-menu icon-with-round-hover"
-                onClick={() => setIsVisible(false)}
-              >
                 {/* <Image
+                  src={
+                    window.location.origin +
+                    "/assets/images/logo/Logo PNG.png"
+                  }
+                /> */}
+                <div className="path">
+                  <i class="fas fa-home"></i>
+                  {/* <p>{slas[0]}</p> */}
+                  <p>{char[0]}</p>
+                </div>
+              </Link>
+              <div className="header__right">
+                <div className="search-row">
+                  {/* <Link to="#" className="search-button">
+                  {t("home")}
+                </Link> */}
+                  <div className="search-container">
+                    <Form className="search-box">
+                      <input
+                        className="search-text"
+                        type="text"
+                        placeholder="Search User"
+                        onChange={handleSearch}
+                      />
+                      <Link to="#" className="search-btn">
+                        <i className="fas fa-search"></i>
+                      </Link>
+                    </Form>
+                  </div>
+                  {show && (
+                    <div className="search-dropdown-sec">
+                      <ul className="list-unstyled search-dropdown-list-sec">
+                        {props.searchUser.loading
+                          ? <CommonCenterLoader />
+                          : props.searchUser.data.users.length > 0
+                            ? props.searchUser.data.users.map((user) => (
+                              <Media as="li" key={user.user_unique_id}>
+                                <Link to={`/${user.user_unique_id}`}>
+                                  <div className="search-body">
+                                    <div className="user-img-sec">
+                                      <Image
+                                        alt="#"
+                                        src={user.picture}
+                                        className="user-img"
+                                      />
+                                    </div>
+                                    <div className="search-content">
+                                      <h5>
+                                        {user.name}{" "}
+                                        {user.is_verified_badge == 1 ? (
+                                          <div className="pl-2">
+                                            <VerifiedBadgeNoShadow />
+                                          </div>
+                                        ) : null}
+                                      </h5>
+                                      <p className="text-muted f-12">
+                                        @{user.username}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </Link>
+                              </Media>
+                            ))
+                            : t("no_user_found")}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+                <div className="links">
+                  <Button
+                    type="button"
+                    className="main-header-menu icon-with-round-hover"
+                    to="#"
+                    data-drawer-trigger
+                    aria-controls="drawer-name"
+                    aria-expanded="false"
+                    onClick={() => setIsVisible(!isVisible)}
+                  >
+                    {/* <Image
+                  src={window.location.origin + "/assets/images/icons/user.svg"}
+                /> */}
+                    <i className='fas fa-user'></i>
+                    <p>Sign In</p>
+                    {/* <Image
+                    src={
+                      window.location.origin +
+                      "/assets/images/icons/new/user-new.svg"
+                    }
+                  /> */}
+                  </Button>
+                  {/* <Button onClick={props.handleDrawerClose}>Menu</Button> */}
+                  <Link
+                    to={"/edit-profile"}
+                    className="main-header-menu icon-with-round-hover m-current"
+                    onClick={() => setIsVisible(false)}
+                  >
+                    {/* <Image
+                    src={
+                      window.location.origin +
+                      "/assets/images/logo/Logo PNG.png"
+                    }
+                  /> */}
+                    <i class="fas fa-gear"></i>
+                    {/* <i class="fas fa-home"></i> */}
+                  </Link>
+                  {/* <Link
+                    to={"/inbox"}
+                    className="main-header-menu icon-with-round-hover"
+                    onClick={() => setIsVisible(false)}
+                  > */}
+                  {/* <Image
                   src={window.location.origin + "/assets/images/icons/chat.svg"}
                 /> */}
-                {/* <i className='bx bx-chat bx-lg'></i> */}
-                <Image
-                  src={
-                    window.location.origin +
-                    "/assets/images/icons/new/mail-new.svg"
-                  }
-                />
-                {/* <span className="main-header-menu__count"> 5 </span>  */}
-                {chatCount > 0 ? (
-                  <Badge variant="light" className="badge-notify">
-                    {chatCount}
-                  </Badge>
-                ) : (
-                  ""
-                )}
-              </Link>
+                  {/* <i className='fas fa-envolpe'></i> */}
+                  {/* <Image
+                    src={
+                      window.location.origin +
+                      "/assets/images/icons/new/mail-new.svg"
+                    }
+                  /> */}
+                  {/* <span className="main-header-menu__count"> 5 </span>  */}
+                  {/* {chatCount > 0 ? (
+                      <Badge variant="light" className="badge-notify">
+                        {chatCount}
+                      </Badge>
+                    ) : (
+                      ""
+                    )}
+                  </Link> */}
 
-              <Link
-                to={"/notification"}
-                className="main-header-menu icon-with-round-hover"
-                active-classname="m-current"
-                exact-active-classname=""
-                onClick={() => setIsVisible(false)}
-              >
-                {/* <Image
-                  src={
-                    window.location.origin +
-                    "/assets/images/icons/notification.svg"
-                  }
-                /> */}
-                {/* <i className='bx bx-bell bx-lg'></i> */}
-                <Image
-                  src={
-                    window.location.origin +
-                    "/assets/images/icons/new/bell-new.svg"
-                  }
-                />
-                {bellCount > 0 ? (
-                  <Badge variant="light" className="badge-notify">
-                    {bellCount}
-                  </Badge>
-                ) : (
-                  ""
-                )}
-              </Link>
-
-              <Button
-                type="button"
-                className="main-header-menu icon-with-round-hover"
-                to="#"
-                data-drawer-trigger
-                aria-controls="drawer-name"
-                aria-expanded="false"
-                onClick={() => setIsVisible(!isVisible)}
-              >
-                
-                <Image
-                  src={
-                    window.location.origin +
-                    "/assets/images/icons/new/user-new.svg"
-                  }
-                />
-              </Button>
+                  <Link
+                    to={"/notification"}
+                    className="main-header-menu icon-with-round-hover"
+                    active-classname="m-current"
+                    exact-active-classname=""
+                    onClick={() => setIsVisible(false)}
+                  >
+                    {/* <Image
+                    src={
+                      window.location.origin +
+                      "/assets/images/icons/notification.svg"
+                    }
+                  /> */}
+                    <i className='fas fa-bell'></i>
+                    {/* <Image
+                    src={
+                      window.location.origin +
+                      "/assets/images/icons/new/bell-new.svg"
+                    }
+                  /> */}
+                    {bellCount > 0 ? (
+                      <Badge variant="light" className="badge-notify">
+                        {bellCount}
+                      </Badge>
+                    ) : (
+                      ""
+                    )}
+                  </Link>
+                </div>
+              </div>
             </nav>
+
+            {/* {localStorage.getItem("is_document_verified") == 3 ? (
+                  <div className="pl-2">
+                    <Alert key={1} variant='danger'>
+                      The user updated documents decined by Admin.
+                    </Alert>
+                  </div>
+                ) : null} */}
           </Container>
         </header>
       ) : (
@@ -390,10 +423,10 @@ const HeaderIndex = (props) => {
                 </div> */}
               </div>
               {/* <Button
-              className="drawer__close"
-              data-drawer-close
-              aria-label="Close Drawer"
-            ></Button> */}
+                className="drawer__close"
+                data-drawer-close
+                aria-label="Close Drawer"
+              ></Button> */}
             </div>
             <div className="drawer__content">
               <div className="right-sidebar-menu-item">
@@ -408,7 +441,7 @@ const HeaderIndex = (props) => {
                       window.location.origin +
                       "/assets/images/icons/Profile.png"
                     }
-                    alt={configuration.get("configData.site_name")}
+                    alt="Factzz"
                   />{" "}
                   {t("my_profile")}
                 </Link>
@@ -513,7 +546,7 @@ const HeaderIndex = (props) => {
                   {t("live_videos")}
                 </Link>
                 {configuration.get("configData.is_one_to_one_call_enabled") ==
-                1 ? (
+                  1 ? (
                   <>
                     <Link
                       to={"/video-calls-history"}
@@ -672,7 +705,7 @@ const HeaderIndex = (props) => {
                     src={
                       window.location.origin + "/assets/images/icons/dark.svg"
                     }
-                    alt={configuration.get("configData.site_name")}
+                    alt="Factzz"
                   />{" "}
                   {t("dark_mode")}
                 </Link>
@@ -687,7 +720,7 @@ const HeaderIndex = (props) => {
                     src={
                       window.location.origin + "/assets/images/icons/logout.svg"
                     }
-                    alt={configuration.get("configData.site_name")}
+                    alt="Factzz"
                   />{" "}
                   {t("logout")}
                 </Link>
@@ -715,6 +748,8 @@ const HeaderIndex = (props) => {
 
 const mapStateToPros = (state) => ({
   notifications: state.notification.notifications,
+  searchUser: state.home.searchUser,
+
 });
 
 function mapDispatchToProps(dispatch) {
