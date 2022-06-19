@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import HomePageSuggesstion from "./HomePageSuggesstion";
-import { Container, Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Container, Col, Form, Media, Image, Row } from "react-bootstrap";
 import {
   fetchHomePostsStart,
+  searchUserStart,
 } from "../../store/actions/HomeAction";
 import { connect } from "react-redux";
 import {
@@ -21,6 +23,7 @@ import configuration from "react-global-configuration";
 import AdSense from "react-adsense";
 import HomePageTrendingUsers from "./HomePageTrendingUsers";
 import StorySlider from "./StorySlider";
+import CommonCenterLoader from "../Loader/CommonCenterLoader";
 
 const HomePageIndex = (props) => {
   useEffect(() => {
@@ -87,11 +90,78 @@ const HomePageIndex = (props) => {
     setIsVisible(false);
   };
 
+  const [show, toggleShow] = useState(false);
+
+  const handleSearch = (event) => {
+    if (event.currentTarget.value === "") {
+      toggleShow(false);
+    } else {
+      toggleShow(true);
+      props.dispatch(searchUserStart({ key: event.currentTarget.value }));
+    }
+  };
+
   return (
     <>
       <div className="home-screen home-sec">
-
+      
         <Container>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+            <Link to="#" className="search-button">
+              {t("home")}
+            </Link>
+            <div className="search-container">
+              <Form className="search-box">
+                <input
+                  className="search-text"
+                  type="text"
+                  placeholder="Search User..."
+                  onChange={handleSearch}
+                />
+                <Link to="#" className="search-btn">
+                  <i className="fas fa-search"></i>
+                </Link>
+              </Form>
+            </div>
+            {show && (
+              <div className="search-dropdown-sec">
+                <ul className="list-unstyled search-dropdown-list-sec">
+                  {props.searchUser.loading
+                    ? <CommonCenterLoader />
+                    : props.searchUser.data.users.length > 0
+                    ? props.searchUser.data.users.map((user) => (
+                        <Media as="li" key={user.user_unique_id}>
+                          <Link to={`/${user.user_unique_id}`}>
+                            <div className="search-body">
+                              <div className="user-img-sec">
+                                <Image
+                                  alt="#"
+                                  src={user.picture}
+                                  className="user-img"
+                                />
+                              </div>
+                              <div className="search-content">
+                                <h5>
+                                  {user.name}{" "}
+                                  {user.is_verified_badge == 1 ? (
+                                    <div className="pl-2">
+                                      <VerifiedBadgeNoShadow />
+                                    </div>
+                                  ) : null}
+                                </h5>
+                                <p className="text-muted f-12">
+                                  @{user.username}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        </Media>
+                      ))
+                    : t("no_user_found")}
+                </ul>
+              </div>
+            )}
+          </div>
           {/* Story Start */}
           <StorySlider />
           {/* Story end */}

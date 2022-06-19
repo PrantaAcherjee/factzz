@@ -24,15 +24,7 @@ const HeaderIndex = (props) => {
 
   const [loginModal, setLoginModal] = useState(false);
   const [signupModal, setSignupModal] = useState(false);
-  const [show, toggleShow] = useState(false);
-  const handleSearch = (event) => {
-    if (event.currentTarget.value === "") {
-      toggleShow(false);
-    } else {
-      toggleShow(true);
-      props.dispatch(searchUserStart({ key: event.currentTarget.value }));
-    }
-  };
+
   useEffect(() => {
     console.log("Inside");
     let chatSocketUrl = configuration.get("configData.chat_socket_url");
@@ -119,14 +111,12 @@ const HeaderIndex = (props) => {
   return (
     <>
       {localStorage.getItem("userId") ? (
-       <Row style={{paddingRight:''}}>
+       <Row>
         <Col xs={12} sm={12}>
         <header className="main-header">
           <Container>
-            <nav className="main-header-menu">
-             <div>
-            <div>
-            <Link
+            <nav className="main-header-menu">        
+                <Link
                 to={"/home"}
                 className="main-header-menu icon-with-round-hover m-current"
                 onClick={() => setIsVisible(false)}
@@ -135,79 +125,8 @@ const HeaderIndex = (props) => {
                 <i class="fas fa-home"></i>
                  <span>{char[0]}</span>
                  </div>
-                  </Link>
-            </div>
-                       
-              <div className="search-container">
-                    <Form className="search-box">
-                      <input
-                        className="search-text"
-                        type="text"
-                        placeholder="Search User"
-                        onChange={handleSearch}
-                      />
-                      <Link to="#" className="search-btn">
-                        <i className="fas fa-search"></i>
-                      </Link>
-                    </Form>
-              </div>
-                
-             </div>
-              
+                  </Link>            
               <div className="header__right">
-                <div className="search-row">
-                  {/* <div className="search-container">
-                    <Form className="search-box">
-                      <input
-                        className="search-text"
-                        type="text"
-                        placeholder="Search User"
-                        onChange={handleSearch}
-                      />
-                      <Link to="#" className="search-btn">
-                        <i className="fas fa-search"></i>
-                      </Link>
-                    </Form>
-                  </div> */}
-                  {show && (
-                    <div className="search-dropdown-sec">
-                      <ul className="list-unstyled search-dropdown-list-sec">
-                        {props.searchUser.loading
-                          ? <CommonCenterLoader />
-                          : props.searchUser.data.users.length > 0
-                            ? props.searchUser.data.users.map((user) => (
-                              <Media as="li" key={user.user_unique_id}>
-                                <Link to={`/${user.user_unique_id}`}>
-                                  <div className="search-body">
-                                    <div className="user-img-sec">
-                                      <Image
-                                        alt="#"
-                                        src={user.picture}
-                                        className="user-img"
-                                      />
-                                    </div>
-                                    <div className="search-content">
-                                      <h5>
-                                        {user.name}{" "}
-                                        {user.is_verified_badge == 1 ? (
-                                          <div className="pl-2">
-                                            <VerifiedBadgeNoShadow />
-                                          </div>
-                                        ) : null}
-                                      </h5>
-                                      <p className="text-muted f-12">
-                                        @{user.username}
-                                      </p>
-                                    </div>
-                                  </div>
-                                </Link>
-                              </Media>
-                            ))
-                            : t("no_user_found")}
-                      </ul>
-                    </div>
-                  )}
-                </div>
                 <div className="links">
                 <Link to={"/"}  className="main-header-menu icon-with-round-hover m-current">                                
                     <i class="fa-solid fa-circle-user"></i>                                    

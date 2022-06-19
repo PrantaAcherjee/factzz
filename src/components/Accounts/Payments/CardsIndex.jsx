@@ -107,7 +107,7 @@ const CardsIndex = (props) => {
                                 )};}
                             }
                           >
-                           <i class="fa-solid fa-trash-can text-warning fs-4 fw-bold"></i>
+                           <i style={{color:'indianred'}} class="fa-solid fa-trash-can  fs-5 fw-bold"></i>
                           </Link>
                       </div>
                       <Image

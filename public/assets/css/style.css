@@ -8144,7 +8144,7 @@ input.authentication-input {
 .cancel-btn.btn.btn-primary:hover {
   background-color: var(--primary-color) !important;
 }
-
+ 
 .modal-body {
   padding: 2em 2em !important;
 }

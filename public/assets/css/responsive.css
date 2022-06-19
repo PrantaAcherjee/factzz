@@ -425,16 +425,7 @@ Version: 1.0
     min-height: 73vh;
     /* overflow: auto; */
   }
-  .search-row {
-    display: block;
-  }
-  .search-button {
-    text-align: center;
-    width: 100%;
-    margin-right: 0;
-    padding-right: 0;
-    padding-top: 1em;
-  }
+
   .search-box:hover > .search-text {
     padding: 2px 10px;
     width: 100%;
@@ -507,15 +498,7 @@ Version: 1.0
     float: unset;
   }
 
-  /* .card-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 1;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    width: 15em;
-    white-space: normal;
-  } */
+  
   .edit-profile-photo .profile-pic {
     left: 55px;
   }

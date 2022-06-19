@@ -188,7 +188,7 @@ const EditProfileIndex = (props) => {
     return (
         <>
             <div className="new-edit-profile-tab">
-                <Tab.Container id="left-tabs-example" defaultActiveKey="personal-info">
+              <Tab.Container id="left-tabs-example" defaultActiveKey="personal-info">
                     <Row>
                         <Col sm={12}>
                             <Nav variant="pills">
@@ -244,7 +244,7 @@ const EditProfileIndex = (props) => {
                                         <span className="resp-display-none">Social Media Links</span>
                                     </Nav.Link>
                                 </Nav.Item>
-                            </Nav>
+                                </Nav>
                         </Col>
                         <Col sm={12}>
                             <Tab.Content>
@@ -447,7 +447,7 @@ const EditProfileIndex = (props) => {
                                                                     <Form.Group>
                                                                         <Form.Label>{t("choose_category")}</Form.Label>
                                                                         <Form.Text className="text-muted">
-                                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                                            Lorem Ipsum is simply dummy text of the    printing and typesetting industry.
                                                                         </Form.Text>
                                                                         <Field
                                                                             className="form-control mr-sm-2"
@@ -490,17 +490,13 @@ const EditProfileIndex = (props) => {
                                                             <Row>
                                                                 <Col md={12}>
                                                                     <div className="settings-btn-sec">
-                                                                        <Button
-                                                                            type="submit"
-                                                                            className="settings-submit-btn"
-                                                                            disabled={profileInputData.buttonDisbled}
-                                                                        >
-                                                                            {profileInputData.loadingButtonContent ?
-                                                                                profileInputData.loadingButtonContent :
-                                                                                t("submit")
-                                                                            }
-                                                                        </Button>
-                                                                    </div>
+                                                                        <Button                                              type="submit"                                                 className="settings-submit-btn"
+disabled={profileInputData.buttonDisbled}>
+{profileInputData.loadingButtonContent ?
+ profileInputData.loadingButtonContent :
+ t("submit")}
+</Button>
+ </div>
                                                                 </Col>
                                                             </Row>
                                                         </FORM>
@@ -1051,7 +1047,7 @@ const EditProfileIndex = (props) => {
                             </Tab.Content>
                         </Col>
                     </Row>
-                </Tab.Container>
+               </Tab.Container>
             </div >
         </>
     );

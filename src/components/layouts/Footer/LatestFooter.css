@@ -3,6 +3,16 @@
   position: relative;
 }
 
+@media only screen 
+  and (min-device-width: 720px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .footer-section {   
+      margin-top: 25rem;
+    }
+}
+
 .latest-footer-box {
   padding: 0;
 }
@@ -62,10 +72,8 @@
   font-family: "Poppins", sans-serif;
   margin-bottom: 20px;
 }
-.footer-social-icon a {
-  /* color: #fff; */
+.footer-social-icon a { 
   font-size: 16px;
-  /* margin-right: 15px; */
 }
 
 .footer-social-icon li a {
@@ -189,6 +197,9 @@
   width: 100%;
   object-fit: cover;
 }
+.footer-logo{
+  margin-bottom: 7px;
+}
 .footer-left,
 .footer-center,
 .footer-right {
@@ -200,3 +211,5 @@
   justify-content: center !important;
   margin-right: 1.4rem;
 }
+
+ 

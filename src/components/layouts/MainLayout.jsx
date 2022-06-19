@@ -51,7 +51,7 @@ const MainLayout = (props) => {
         <Notify position="TopRight" />
         <HeaderIndex toggleTheme={toggleClass} />
         {/* <SideNav /> */}
-        <div style={{marginTop:'1.5rem'}} className="main-content-wrap sidenav-open d-flex flex-column">
+        <div style={{marginTop:'1.5rem'}}    className="main-content-wrap sidenav-open d-flex flex-column">
           <div className="main-wrap-sec">
             {React.cloneElement(props.children)}
           </div>

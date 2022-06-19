@@ -152,7 +152,7 @@ const LandingFooter = (props) => {
                   </div>
                 </Col>
                 {/* social icons  */}
-                <Col xl={4} lg={4} md={6} sm={8} xs={12} className="footer-right">
+                <Col xl={4} lg={4} md={6} sm={12} xs={12} className="footer-right">
                   <div className="footer-widget">
                     <div className="footer-social-icon">
                       <ul className="footer-social-link-sec list-unstyled social-media">
@@ -272,7 +272,7 @@ const LandingFooter = (props) => {
           <div className="copyright-area">
             <Container>
               <Row>
-                <Col xl={12} lg={12} className="text-center">
+                <Col xl={12} lg={12} sm={12} xs={12} className="text-center">
                   <div className="copyright-text">
                     <p>{configuration.get("configData.copyright_content")}</p>
                   </div>

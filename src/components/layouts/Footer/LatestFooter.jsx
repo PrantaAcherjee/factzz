@@ -111,7 +111,7 @@ const LatestFooter = (props) => {
                   </div>
                 </Col>
                 {/* start path  */}
-                <Col xl={4} lg={3} md={6} sm={12}   xs={12} className="mb-30 footer-left">
+                <Col xl={4} lg={3} md={6} sm={12}  xs={12} className="mb-30 footer-left">
                   <div className="footer-widget">
                     {/* <div className="footer-widget-heading">
                       <h3>{configuration.get("configData.site_name")}</h3>
@@ -152,7 +152,7 @@ const LatestFooter = (props) => {
                   </div>
                 </Col>
                 {/* social icons  */}
-                <Col xl={4} lg={4} md={6} sm={8} xs={12} className="footer-right">
+                <Col xl={4} lg={4} md={6} sm={12} xs={12} className="footer-right">
                   <div className="footer-widget">
                     <div className="footer-social-icon">
                       <ul className="footer-social-link-sec list-unstyled social-media">
