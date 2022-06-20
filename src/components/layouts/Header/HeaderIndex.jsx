@@ -129,7 +129,8 @@ const HeaderIndex = (props) => {
               <div className="header__right">
                 <div className="links">
                 <Link to={"/"}  className="main-header-menu icon-with-round-hover m-current">                                
-                    <i class="fa-solid fa-circle-user"></i>                                    
+                    <i class="fa-solid fa-circle-user"></i>
+                     <p className="pt-2 px-1 fw-bold">Sign-in</p>                                   
                    </Link>
   
                   <Link
@@ -391,15 +392,8 @@ const HeaderIndex = (props) => {
                   data-name="Profile"
                   onClick={() => setIsVisible(!isVisible)}
                 >
-                  {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/Profile.png"
-                    }
-                    alt="Factzz"
-                  />{" "}
-                  {t("my_profile")} */}
-                 <i class="fa-solid fa-jet-fighter-up"></i>Explore More
+                   
+                   <i class="fa-regular fa-compass"></i>Explore More
                 </Link>
 
                 {localStorage.getItem("is_content_creator") != 2 ? (

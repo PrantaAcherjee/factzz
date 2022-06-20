@@ -95,7 +95,7 @@ const LatestFooter = (props) => {
               </div>
               : ""}
               {/* start logo */}
-            <div className="footer-content pt-5 pb-5">
+            <div className="footer-content pt-5 pb-5">         
               <Row>
                 <Col xl={4} lg={3} className="mb-30 footer-center">
                   <div className="footer-widget logo-container">
@@ -272,7 +272,7 @@ const LatestFooter = (props) => {
           <div className="copyright-area">
             <Container>
               <Row>
-                <Col xl={12} lg={12} className="text-center">
+                <Col xl={12} lg={12} sm={12} className="text-center">
                   <div className="copyright-text">
                     <p>{configuration.get("configData.copyright_content")}</p>
                   </div>

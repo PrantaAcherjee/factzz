@@ -285,7 +285,7 @@ const LandingPageIndex = (props) => {
                     className="auth-left-img"
                   />
                   <div className="text__content">
-                    <h2>{show === "login" ? "Attention is the new currency" : show === "forgotpassword" ? "Be Protective with password" : "Your journey starts here"}</h2>
+                    <h2>{show === "login" ? "Good to see you again" : show === "forgotpassword" ? "Be Protective with password" : "Your journey starts here"}</h2>
                     <h5>{show === "login" ? "The more effortless the writing looks, the more effort the writer actully put into the process." : show === "forgotpassword" ? "Just as it takes a company to sustain a product, it takes a community to sustain a protocol" : "Just as it takes a company to sustain a product, it takes a community to stustain a protocol."}</h5>
                   </div>
                 </div>
