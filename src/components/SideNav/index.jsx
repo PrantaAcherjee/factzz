@@ -21,12 +21,12 @@ const SideNav = () => {
             icon:<i class="fa-regular fa-compass"></i>
         },
         {
-            path:"/my-profile",
+            path:"/profile",
             name:"Profile",
             icon:<i class="fa-solid fa-circle-user"></i>
         },
         {
-            path:"/edit-post",
+            path:"/edit-profile",
             name:"Settings",
             icon:<i class="fa-solid fa-gears"></i>
         },

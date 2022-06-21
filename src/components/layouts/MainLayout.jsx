@@ -53,16 +53,16 @@ const MainLayout = (props) => {
                 )}        
           </Col>
           <Col xl={10}>
-          <div style={{marginTop:'1.5rem'}}    className="main-content-wrap sidenav-open d-flex flex-column">
+          <div style={{marginTop:'1.5rem',overflow:'hidden'}}    className="main-content-wrap sidenav-open d-flex flex-column">
           <div className="main-wrap-sec">
             {React.cloneElement(props.children)}
           </div>
-          <LatestFooter />
+          {/* <LatestFooter /> */}
         </div>
-          </Col>
-        </Row>
-      
+          </Col>       
+        </Row>  
       </div>
+      <LatestFooter />
     </div>
   );
 }
