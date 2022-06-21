@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { fetchUserDetailsStart } from "../../store/actions/UserAction";
 import { useHistory } from 'react-router-dom';
 import HeaderIndex from "./Header/HeaderIndex";
+import { Col, Row } from "react-bootstrap";
 
 const MainLayout = (props) => {
   let history = useHistory();
@@ -34,29 +35,33 @@ const MainLayout = (props) => {
       setIsLoggedIn(false)
     }
   }, [])
-  // const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+ 
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+   
   console.log(isLoggedIn)
   return (
     <div style={{overflow:'hidden'}}  className={`${themeState ? "dark-mode" : ""}`} >
       <div className="app-admin-wrap layout-sidebar-large">
         <Notify position="TopRight" />
+        <Row>
         <HeaderIndex toggleTheme={toggleClass} />
-        {/* <SideNav /> */}
-        <div style={{marginTop:'1.5rem'}}    className="main-content-wrap sidenav-open d-flex flex-column">
+          <Col xl={2} style={{marginTop:'4rem'}}>
+          {localStorage.getItem("is_content_creator") != 2 ? (
+                 ""  
+                ) : (
+                  <SideNav />                 
+                )}        
+          </Col>
+          <Col xl={10}>
+          <div style={{marginTop:'1.5rem'}}    className="main-content-wrap sidenav-open d-flex flex-column">
           <div className="main-wrap-sec">
             {React.cloneElement(props.children)}
           </div>
           <LatestFooter />
         </div>
+          </Col>
+        </Row>
+      
       </div>
     </div>
   );
