@@ -1625,8 +1625,7 @@ img.post-icon-svg.icon-last {
 }
 
 .comment-send-icon {
-  /* background-image: linear-gradient( to right, #667eea, #6730e3, #6b8dd6, #6730e3 ); */
-  background-color: var(--primary-color);
+  background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
   width: 2em;
   height: 2em;
   display: flex;
@@ -1820,8 +1819,7 @@ span.comment-message {
   -o-transition-duration: 0.4s;
 }
 
-.search:focus {
-}
+ 
 
 .expandright {
   left: auto;
@@ -4429,9 +4427,7 @@ input#fileupload_photo {
   display: none;
 }
 
-button.g-btn.m-rounded.b-chat__btn-submit:hover {
-  background: var(--primary-color) !important;
-}
+ 
 button.g-btn.m-rounded.b-chat__btn-submit {
   border-radius: 1000px;
   /* position: absolute; */
@@ -4444,7 +4440,7 @@ button.g-btn.m-rounded.b-chat__btn-submit {
   font-size: 14px;
   color: #fefefe;
   font-weight: 500;
-  background: var(--primary-color) !important;
+  background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
   border: none;
   -webkit-transition: opacity 0.3s ease, background-color 0.3s ease,
     -webkit-box-shadow 0.3s ease;

@@ -45,14 +45,15 @@ const MainLayout = (props) => {
         <Notify position="TopRight" />
         <Row>
         <HeaderIndex toggleTheme={toggleClass} />
-          <Col xl={2} md={2} sm={4}xs={4} style={{marginTop:'4rem'}}>
+          {/* <Col xl={2} md={2} sm={4}xs={4} style={{marginTop:'4rem'}}>
           {localStorage.getItem("is_content_creator") != 2 ? (
                  ""  
                 ) : (
                   <SideNav />                 
                 )}        
-          </Col>
-          <Col xl={10} md={10} sm={8} xs={8}>
+          </Col> */}
+
+          <Col xl={12} md={12}>
           <div style={{marginTop:'1.5rem',overflow:'hidden'}}    className="main-content-wrap sidenav-open d-flex flex-column">
           <div className="main-wrap-sec">
             {React.cloneElement(props.children)}

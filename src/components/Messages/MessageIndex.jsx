@@ -392,7 +392,7 @@ const MessageIndex = (props) => {
                                 props.chatMessages.data.user.user_unique_id
                               }
                             >
-                              View Profile
+                              View profile
                             </Link>
                           </Media>
                           {/* <Media as="li" className="divider"></Media> */}

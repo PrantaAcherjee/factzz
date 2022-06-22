@@ -22,13 +22,13 @@ const ChatUserList = (props) => {
 							: "user-list-card"
 					}>
 						<div className="user-list-body">
-								<div className="user-list-img-sec">
-										<Image
-												src={chatUser.to_userpicture}
-												alt={chatUser.to_displayname}
-												className="user-list-img"
-										/>
-								</div>
+		<div className="user-list-img-sec">
+		<Image
+		src={chatUser.to_userpicture}
+		alt={chatUser.to_displayname}
+		className="user-list-img"
+		/>
+		</div>
 								<div className="user-list-info">
 										<h6>{chatUser.to_displayname}</h6>
 										<p>{chatUser.message}</p>

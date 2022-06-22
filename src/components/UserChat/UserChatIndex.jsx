@@ -41,6 +41,7 @@ import ReactAudioPlayer from "react-audio-player";
 import { isMobile } from "react-device-detect";
 import ReactFancyBox from 'react-fancybox'
 import 'react-fancybox/lib/fancybox.css'
+import { Paper } from "@material-ui/core";
 
 const $ = window.$;
 
@@ -375,7 +376,7 @@ const UserChatIndex = (props) => {
         <Container>
           <Row>
             <Col sm="12" md="12">
-              <div className="user-chat-box">
+              <Paper  className="user-chat-box">
                 <div className="user-chat-list-sec">
                   <div className="user-chat-list-header">
                     <Link to={`/home`}>
@@ -383,20 +384,17 @@ const UserChatIndex = (props) => {
                         <i className="fas fa-chevron-left"></i>
                       </div>
                     </Link>
-                    <h3>{t("chat")}</h3>
+                    <h3>{t("Friends")}</h3>
                   </div>
                   <div className="chat-list-search-sec">
                     <InputGroup>
                       <FormControl
-                        placeholder={t("search_by_username")}
+                        placeholder={t("Search Contact")}
                         aria-label={t("search_by_username")}
                         aria-describedby="basic-addon2"
                         onChange={(event) => searchUser(event.target.value)}
                         value={searchKey}
                       />
-                      <InputGroup.Text id="basic-addon2">
-                        <i className="fas fa-search"></i>
-                      </InputGroup.Text>
                     </InputGroup>
                   </div>
                   <div className="chat-list-collapse-body">
@@ -424,12 +422,20 @@ const UserChatIndex = (props) => {
                 ) : props.chatMessages.data.user &&
                   props.chatMessages.data.user.user_unique_id ? (
                   <div className="user-chat-room-sec mobile-display-none">
-                    <div className="user-chat-room-header">
+                    <Paper className="user-chat-room-header">
                       <Link
                         to={`/` + props.chatMessages.data.user.user_unique_id}
                         className="user-chat-msg"
                       >
-                        <h3>
+                          <div>
+		                      <Image
+                          style={{width:'50px',height:'50px',borderRadius:'50%'}}
+	                       	src={props.chatMessages.data.user.picture}
+                          alt='user-image'
+		                      />
+		                      </div>
+                          <div>
+                          <h3>
                           {props.chatMessages.data.user.name}{" "}
                           {props.chatMessages.data.user.is_verified_badge ==
                           1 ? (
@@ -448,6 +454,7 @@ const UserChatIndex = (props) => {
                         <Link to="#" className="link-user-name">
                           @{props.chatMessages.data.user.name}{" "}
                         </Link>
+                          </div>
                       </Link>
                       <Dropdown>
                         <Dropdown.Toggle
@@ -462,7 +469,8 @@ const UserChatIndex = (props) => {
                             }
                             className="svg-clone vertical-dots"
                           /> */}
-                          <i className="fas fa-ellipsis-v svg-clone vertical-dots h-dots"></i>
+                          {/* <i className="fas fa-ellipsis-v svg-clone vertical-dots h-dots"></i> */}
+                          <i style={{fontSize:'17px'}} class="fa-solid text-secondary fa-screwdriver-wrench"></i>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu dropdown-menu-right r-dropdown-menu">
                           <Media as="li">
@@ -497,7 +505,7 @@ const UserChatIndex = (props) => {
                           <></>
                         </Dropdown.Menu>
                       </Dropdown>
-                    </div>
+                    </Paper>
                     <div className="user-chat-main-wrapper-body">
                       <div
                         className="user-message-content-sec"
@@ -808,7 +816,7 @@ const UserChatIndex = (props) => {
                               onClick={handleChatSubmit}
                               ref={invalidMessageRef}
                             >
-                              {/* <i className="far fa-paper-plane"></i> */}
+                              
                               <Image
                                 className="comment-send-icon"
                                 src={
@@ -833,11 +841,11 @@ const UserChatIndex = (props) => {
                               )}
                             </Overlay>
                             <Button
-                              className="ml-2"
+                              
                               type="button"
                               onClick={triggerPicker}
                             >
-                              <i className="far fa-smile"></i>
+                              <i style={{backgroundImage:' linear-gradient(310deg, #7928CA 0%, #FF0080 100%)'}} className="far fa-smile"></i>
                             </Button>
                             </InputGroup.Text>
                           </InputGroup.Append>
@@ -858,7 +866,7 @@ const UserChatIndex = (props) => {
                 ) : (
                   <InboxNoDataFound />
                 )}
-              </div>
+              </Paper>
             </Col>
           </Row>
         </Container>
