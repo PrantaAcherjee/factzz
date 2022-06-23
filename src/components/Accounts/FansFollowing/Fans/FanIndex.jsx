@@ -41,14 +41,8 @@ const FanIndex = (props) => {
                       to={"/home"}
                       onClick={() => props.history.goBack()}
                     >
-                      <Image
-                        src={
-                          window.location.origin +
-                          "/assets/images/icons/back.svg"
-                        }
-                        className="svg-clone"
-                      />
-                      {t("fans")}
+                     <i style={{fontSize:'24px'}} class="fa-solid fa-hand-point-left"> </i> 
+                     <span style={{fontSize:'24px',paddingLeft:'5px'}}>Fans</span> 
                     </Link>
                   </h3>
                 </div>

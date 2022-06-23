@@ -3,6 +3,7 @@ import { Image } from "react-bootstrap";
 import NoDataFound from "../NoDataFound/NoDataFound";
 import VerifiedBadgeNoShadow from "../Handlers/VerifiedBadgeNoShadow";
 import { translate, t } from "react-multi-lang";
+import { Paper } from "@material-ui/core";
 
 const NotificationAllSec = (props) => {
   const { notifications } = props;
@@ -21,7 +22,7 @@ const NotificationAllSec = (props) => {
         <div className="notification-list">
           {notifications.length > 0 ? (
             notifications.map((notification) => (
-              <div className="notify-item">
+              <Paper elevation={1} className="notify-item">
                 <div className="post-header">
                   <div className="alignleft">
                     <a
@@ -41,18 +42,10 @@ const NotificationAllSec = (props) => {
                               <VerifiedBadgeNoShadow />
                             </div>
                           ) : null}
-                          {/* <span className="user-id">
-                            <Link
-                              target="_blank"
-                              to={notification.from_username}
-                            >
-                              @{notification.from_username}
-                            </Link>
-                          </span> */}
                         </span>
-                        <span className="post-user-notify">
+                        <p style={{color:'white'}}>
                           {notification.message}
-                        </span>
+                        </p>
                         <span className="post-user-notify-date">
                           {notification.updated_formatted}
                         </span>
@@ -60,7 +53,7 @@ const NotificationAllSec = (props) => {
                     </a>
                   </div>
                 </div>
-              </div>
+              </Paper>
             ))
           ) : (
             <NoDataFound></NoDataFound>

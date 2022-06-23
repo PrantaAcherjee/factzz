@@ -15,12 +15,13 @@ const BookmarkNav = (props) => {
           // to={"/bookmarks"}
         >
           <Link to={"/list"}>
-            <Image
+            {/* <Image
               src={window.location.origin + "/assets/images/icons/back.svg"}
               className="svg-clone"
-            />
-          </Link>
-         <span> {t("bookmarks")}</span>
+            /> */}
+             <i style={{fontSize:'24px'}} class="fa-solid fa-hand-point-left"> </i> 
+             <span style={{fontSize:'24px',paddingLeft:'5px'}}>Bookmarks</span> 
+             </Link>
         </div>
 
         <NavLink

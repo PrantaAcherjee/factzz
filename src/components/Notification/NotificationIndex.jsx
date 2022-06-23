@@ -40,14 +40,15 @@ const NotificationIndex = (props) => {
                 <div className="bookmarkes-list bookmarks-right-side resp-sapce-center">
                   <div className="pull-left">
                     <Link className="bookmarkes-list notify-title" to={`/home`}>
-                      <Image
+                      {/* <Image
                         src={
                           window.location.origin +
                           "/assets/images/icons/back.svg"
                         }
                         className="svg-clone"
-                      />
-                      {t("notifications")}
+                      /> */}
+                     <i style={{fontSize:'24px'}} class="fa-solid fa-hand-point-left"> </i> 
+                      <span style={{fontSize:'24px',paddingLeft:'5px'}}>Notification</span> 
                     </Link>
                   </div>
                 </div>

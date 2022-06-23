@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Button, Container, Row, Col, Table, Badge } from "react-bootstrap";
+import { Button, Container, Row, Col, Table, Badge,Image } from "react-bootstrap";
 import "../../Wallet/Wallet.css";
 import NoDataFound from "../../NoDataFound/NoDataFound";
 import BillingAccountLoader from "../../Loader/BillingAccountLoader";
@@ -55,7 +55,7 @@ const AudioCallHistoryIndex = (props) => {
 
   return (
     <>
-      <div className="wallet-sec">
+      <div className="vedio-call">
         <Container>
           <Row>
             <Col sm={12} md={12}>
@@ -63,19 +63,11 @@ const AudioCallHistoryIndex = (props) => {
                 <Row>
                   <Col sm={12} md={12} xl={9}>
                   <Link
-                      className="bookmarkes-list notify-title back-button"
                       onClick={() => props.history.goBack()}
                     >
-                      <img
-                        src={
-                          window.location.origin +
-                          "/assets/images/icons/back.svg"
-                        }
-                        className="svg-clone"
-                      />
-                      <h3 className="ml-2 mb-0">{t("audio_call_history")}</h3>
+                      <button className="audio-vedio-history">Audio Call History</button>
                     </Link>
-                    <p className="text-muted f-2">
+                    <p style={{color:'#fff',fontSize:'12px',paddingTop:'2rem'}}>
                       {t("audio_call_history_note")}
                     </p>
                   </Col>
@@ -138,6 +130,7 @@ const AudioCallHistoryIndex = (props) => {
                             <td>
                               {audioCall.accept_btn_status == 1 ? (
                                 <Button
+                                style={{borderRadius:'10px'}}
                                   className="btn btn-sm btn-success mr-3 col-12 mb-2"
                                   onClick={() =>
                                     props.dispatch(
@@ -155,6 +148,7 @@ const AudioCallHistoryIndex = (props) => {
                               )}
                               {audioCall.reject_btn_status == 1 ? (
                                 <Button
+                                style={{borderRadius:'10px'}}
                                   className="btn btn-sm btn-danger mr-3 col-12 mb-2"
                                   onClick={() =>
                                     props.dispatch(
@@ -172,6 +166,7 @@ const AudioCallHistoryIndex = (props) => {
                               )}
                               {audioCall.payment_btn_status == 1 ? (
                                 <Button
+                                style={{borderRadius:'10px'}}
                                   className="btn btn-success mr-3 col-12 mb-2"
                                   onClick={(event) =>
                                     makePayment(event, audioCall)
@@ -185,6 +180,7 @@ const AudioCallHistoryIndex = (props) => {
 
                               {audioCall.join_btn_status == 1 ? (
                                 <Link
+                                style={{borderRadius:'10px'}}
                                   className="btn btn-success mr-3 col-12 mb-2"
                                   to={`/private-audio-call/${audioCall.audio_call_request_unique_id}`}
                                 >
@@ -196,6 +192,7 @@ const AudioCallHistoryIndex = (props) => {
 
                               {audioCall.start_btn_status == 1 ? (
                                 <Link
+                                style={{borderRadius:'10px'}}
                                   className="btn btn-success mr-3 col-12 mb-2"
                                   to={`/private-audio-call/${audioCall.audio_call_request_unique_id}`}
                                 >
@@ -207,6 +204,7 @@ const AudioCallHistoryIndex = (props) => {
 
                               {audioCall.end_btn_status == 1 ? (
                                 <Button
+                                style={{borderRadius:'10px'}}
                                   className="btn btn-danger mr-3 col-12"
                                   onClick={() =>
                                     props.dispatch(

@@ -40,159 +40,101 @@ const Wallet = (props) => {
 				{props.wallet.loading ? (
 					<WalletLoader></WalletLoader>
 				) : (
-					<Container>
-						<Row>
-							<Col sm={12} md={12}>
-								<div className="wallet-header-sec">
-									<Row>
-										{/* <Col sm={12} md={6} xl={3}>
-											<div className="wallet-header-card">
-												<Image
-														src={
-															window.location.origin +
-															"/assets/images/icons/wallet-active.svg"
-														}
-														className="credit-img"
-													/>
-												<div className="wallet-header-details">
-													<h5>{t("total_balance")}</h5>
-													<h3>
-														{props.wallet.data.user_wallet.total_formatted}
-													</h3>
-												</div>
-											</div>
-										</Col> */}
-										<Col sm={12} md={6} xl={3}>
-											<div className="wallet-header-card">
-												<Image
-													src={
-														window.location.origin +
-														"/assets/images/icons/wallet-dollar.svg"
-													}
-													className="credit-img"
-												/>
-												<div className="wallet-header-details">
-													<h5>{t("wallet_balance")}</h5>
-													<h3>
-														{props.wallet.data.user_wallet.remaining_formatted}
-														{/* <span className="amount-decimal">.76500293</span>
-														<span className="amount-abb">BTC</span> */}
-													</h3>
-												</div>
-											</div>
-										</Col>
-										{configuration.get("configData.is_referral_enabled") == 1 ? 
-											<Col sm={12} md={6} xl={3}>
-												<div className="wallet-header-card">
-													<Image
-														src={
-															window.location.origin +
-															"/assets/images/icons/wallet-dollar.svg"
-														}
-														className="credit-img"
-													/>
-													<div className="wallet-header-details">
-														<h5>{t("referral_balance")}</h5>
-														<h3>
-															{props.wallet.data.user_wallet.referral_amount_formatted}
-															{/* <span className="amount-decimal">.76500293</span>
-															<span className="amount-abb">BTC</span> */}
-														</h3>
-													</div>
-												</div>
-											</Col>
-										: ''}
+		<Container>
+		<Row>
+	        <Col sm={12} md={12}>
+		<div className="wallet-header-sec">	 						<Row>				
+		<Col sm={12} md={6} xl={3}>
+		<div className="wallet-header-card">
+		<Image style={{paddingRight:'10px'}} src={window.location.origin +
+		"/assets/images/icons/wallet-dollar.svg"}
+		className="credit-img"/>
+		<div className="wallet-header-details">
+		<h5>{t("wallet_balance")}</h5>
+		<h3>{props.wallet.data.user_wallet.remaining_formatted}</h3>
+		</div>
+		</div>
+		</Col>
+		{configuration.get("configData.is_referral_enabled") == 1 ? 
+		<Col sm={12} md={6} xl={3}>
+		<div className="wallet-header-card">
+		<Image style={{paddingRight:'10px'}} src={window.location.origin +
+		"/assets/images/icons/wallet-dollar.svg"
+		}className="credit-img"/>
+		<div className="wallet-header-details">
+		<h5>{t("referral_balance")}</h5>
+		<h3>{props.wallet.data.user_wallet.referral_amount_formatted}</h3>
+		</div>
+		</div>
+		</Col>: ''}
 										
-										<Col sm={12} md={6} xl={3}>
-											<div className="edit-save">
-											<Button
-												className="send-btn-white mb-3"
-												onClick={() => setAddWalletAmountModal(true)}
-												>
-													{configuration.get("configData.is_only_wallet_payment") == 1 ? t("add_wallet_token") : t("add_wallet_amount")}
-												</Button>
-												<Button
-													className="send-btn-white"
-													onClick={() => setWithdrawModal(true)}
-												>
-													{t("withDraw")}
-												</Button>
-											</div>
-										</Col>
-									</Row>
+								<Col sm={12} md={6} xl={3}>
+								<div className="edit-save">
+								<Button
+	className="send-btn-white mb-3"
+	onClick={() => setAddWalletAmountModal(true)}>
+	{configuration.get("configData.is_only_wallet_payment") == 1 ? t("add_wallet_token") : t("add_wallet_amount")}
+	</Button>
+	<Button
+	className="send-btn-white"
+	onClick={() => setWithdrawModal(true)}
+	>
+	{t("withDraw")}
+	</Button>
+	</div>
+	</Col>
+	</Row>
 								</div>
-							</Col>
-						</Row>
-					</Container>
-				)}
-			</div>
-			<div className="trans-table-sec">
-				<Container>
-					<Row>
-						<Col sm={12} md={12}>
-							<h4>{t("transactions")}</h4>
-							<div className="trans-table">
-								<Table borderedless responsive>
-									<tbody>
-										{props.transaction.loading ? (                           
-											<CommonCenterLoader></CommonCenterLoader>
-										) : props.transaction.data.history.length > 0 ? (
-											props.transaction.data.history.map((data) => (
-												<tr>
-													<td>{data.status_formatted}</td>
-													{configuration.get("configData.is_only_wallet_payment") == 0 ? 
-														<>
-															<td className="amount">
-																{data.paid_amount_formatted}{" "}
-																{/* <span className="amout-abb">STRAT</span> */}
-															</td>
-															<td className="amount">
-																{t("service_fee")} :{" "}{data.admin_amount_formatted}{" "}
-																{/* <span className="amout-abb">STRAT</span> */}
-															</td>
-														</>
-													:
-														<>
-															<td className="amount">
-																{data.token_formatted}{" "}({data.currency}{data.paid_amount})
-															</td>
-															<td className="amount">
-																{t("service_fee")} :{" "}{data.admin_token_formatted}{" "}
-															</td>
-														</>
-													}
-													
-													<td className="amount">
-														<span className="text-capitalize">
-															{data.payment_type}{" "}
-														</span>
-														{/* <span className="amout-abb text-muted">TYPE</span> */}
-													</td>
-													<td>
-														{t("from")} :{" "}
-														{data.received_from_username
-															? data.received_from_username
-															: "-"}
-													</td>
-													<td>{data.payment_id}</td>
-													{/* <td>
-															<Badge className="unconfirmed-badge">
-																unconfirmed
-															</Badge>
-															<span>now</span>
-														</td> */}
-												</tr>
-											))
-										) : (
-											<NoDataFound></NoDataFound>
-										)}
-									</tbody>
-								</Table>
-							</div>
-						</Col>
-					</Row>
-				</Container>
-			</div>
+	</Col>
+	</Row>
+	</Container>
+	)}
+</div>
+<div className="trans-table-sec">
+	<Container>
+	<Row>
+	<Col sm={12} md={12}>
+	<h4>{t("transactions")}</h4>
+	<div className="trans-table">
+	<Table borderedless responsive>
+	<tbody>
+	{props.transaction.loading ? (                           
+	<CommonCenterLoader></CommonCenterLoader>
+	) : props.transaction.data.history.length > 0 ? (
+	props.transaction.data.history.map((data) => (
+	<tr>
+	<td>{data.status_formatted}</td>
+	{configuration.get("configData.is_only_wallet_payment") == 0 ? 
+	<>
+	<td className="amount">
+	{data.paid_amount_formatted}{" "}
+	</td>
+	<td className="amount">
+	{t("service_fee")} :{" "}{data.admin_amount_formatted}{" "}</td></>:<>
+	<td className="amount">
+	{data.token_formatted}{" "}({data.currency}{data.paid_amount})</td>
+	<td className="amount">
+	{t("service_fee")} :{" "}{data.admin_token_formatted}{" "}</td></>}
+	<td className="amount">
+	<span className="text-capitalize">
+	{data.payment_type}{" "}
+	</span></td>
+	<td>{t("from")} :{" "}
+	{data.received_from_username
+	? data.received_from_username
+	: "-"}</td>
+	<td>{data.payment_id}</td>
+	</tr>
+	))
+	) : (
+	<NoDataFound></NoDataFound>
+	)}
+	</tbody>
+	</Table>
+	</div></Col>
+	</Row>
+	</Container>
+	</div>
 			<WithdrawModal
 				withdrawModal={withdrawModal}
 				closeWithdrawModal={closeWithdrawModal}

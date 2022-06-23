@@ -3,18 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import { Container, Image, Media, Button, Badge, Form,Row,Col} from "react-bootstrap";
 import configuration from "react-global-configuration";
 import VerifiedBadgeNoShadow from "../../Handlers/VerifiedBadgeNoShadow";
-// import SideBarIndex from "../SideBar/SideBarIndex";
 import io from "socket.io-client";
-// import { updateNotificationCount } from "../../../store/actions/NotificationAction";
-// import Alert from "react-bootstrap/Alert";
 import { connect } from "react-redux";
 import { translate, t } from "react-multi-lang";
 import CreateContentCreatorModal from "../../helper/CreateContentCreatorModal";
 import LoginModal from "../../Model/LoginModal";
 import SignupModal from "../../Model/SignupModal";
 import "./header.css"
-import { searchUserStart } from "../../../store/actions/HomeAction";
-import CommonCenterLoader from "../../Loader/CommonCenterLoader";
+ 
 
 let chatSocket;
 
@@ -128,11 +124,28 @@ const HeaderIndex = (props) => {
                   </Link>            
               <div className="header__right">
                 <div className="links">
-                <Link to={"/"}  className="main-header-menu icon-with-round-hover m-current">                                
-                    <i class="fa-solid fa-circle-user"></i>
-                     <p className="pt-2 px-1 fw-bold">Sign-in</p>                                   
-                   </Link>
-  
+     
+              
+               <div class="dropdown show">
+               <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fa-solid fa-circle-user"></i>
+               </a>
+
+               <div style={{width:'185px',marginTop:'14px',overflow:"hidden",background:'#fff'}}  class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">             
+               <Link style={{fontSize:'16px',fontWeight:'500'}} class="dropdown-item" to={"/explore"}><i class="fa-solid fa-arrows-rotate"></i> Explore More </Link> 
+               <hr/>
+               <Link style={{fontSize:'16px',fontWeight:'500'}} class="dropdown-item" to={"/live-videos"}><i class="fa-solid fa-arrows-rotate"></i> Live Videos</Link> 
+               <hr/>            
+               {
+                localStorage.getItem("is_content_creator") != 2 ?  <Link style={{fontSize:'16px',fontWeight:'500'}} class="dropdown-item"  to={"/become-a-content-creator"}><i class="fa-solid fa-arrows-rotate"></i> Content Creator</Link>
+    
+                :
+                <Link style={{fontSize:'16px',fontWeight:'500'}}class="dropdown-item"  to={"/add-post"}><i class="fa-solid fa-arrows-rotate"></i> Add Post</Link>
+               }             
+             </div>
+              </div>
+
+ 
                   <Link
                     to={"/inbox"}
                     className="main-header-menu icon-with-round-hover m-current"
@@ -386,15 +399,7 @@ const HeaderIndex = (props) => {
                   />{" "}
                   {t("my_profile")}
                 </Link>
-                <Link
-                  to={"/explore"}
-                  className="sidebar-menus-item"
-                  data-name="Profile"
-                  onClick={() => setIsVisible(!isVisible)}
-                >
-                   
-                   <i class="fa-regular fa-compass"></i>Explore More
-                </Link>
+                
 
                 {localStorage.getItem("is_content_creator") != 2 ? (
                   <Link
@@ -429,21 +434,19 @@ const HeaderIndex = (props) => {
                     />{" "}
                     {t("dashboard")}
                   </Link>
-                  <Link to={"/add-post"}  className="sidebar-menus-item">
-                  <i class="fa-solid fa-file-circle-plus"></i>Add Post
-                  </Link>
+                   
                   
                   </>                
                 )}
 
                 <Link
-                  to={"/ecom"}
+                  to={"/product-list"}
                   className="sidebar-menus-item"
                   data-name="ecommerce"
                   onClick={() => setIsVisible(!isVisible)}
                 >
                   <i className="fas fa-shopping-bag"></i>
-                  {t("ecommerce")}
+                  {t("Product List")}
                 </Link>
 
                 <Link

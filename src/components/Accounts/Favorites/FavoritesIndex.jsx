@@ -54,15 +54,8 @@ const FavoritesIndex = (props) => {
                     <Link
                       className="bookmarkes-list"
                       to={"/list"}>
-                      <Image
-                        src={
-                          window.location.origin +
-                          "/assets/images/icons/back.svg"
-                        }
-                        className="svg-clone"
-                        width=""
-                      />
-                      {t("favorites")}
+                      <i style={{fontSize:'24px'}} class="fa-solid fa-hand-point-left"> </i> 
+                      <span style={{fontSize:'24px',paddingLeft:'5px'}}>Favourite</span> 
                     </Link>
                   </h3>
                 </div>

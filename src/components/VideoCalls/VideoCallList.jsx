@@ -9,14 +9,11 @@ import {
   Image,
   Badge,
 } from "react-bootstrap";
-// import WithdrawModal from "../helper/WithdrawModal";
 import NoDataFound from "../NoDataFound/NoDataFound";
-// import WalletLoader from "../Loader/WalletLoader";
 import { t } from "react-multi-lang";
 import { fetchVideoCallRequestsStart } from "../../store/actions/VideoCallAction";
 import "./VideoCall.css";
 import { Link } from "react-router-dom";
-import VideoCallPaymentModal from "../helper/VideoCallPaymentModal";
 import CommonCenterLoader from "../Loader/CommonCenterLoader";
 
 const VideoCallList = (props) => {
@@ -31,15 +28,15 @@ const VideoCallList = (props) => {
   };
   return (
     <>
-      <div className="wallet-sec">
+      <div className="vedio-call">
         <Container>
           <Row>
             <Col sm={12} md={12}>
-              <div className="wallet-header-sec">
+              <div>
                 <Row>
                   <Col sm={12} md={12} xl={9}>
-                    <h3>{t("video_calls")}</h3>
-                    <p className="text-muted f-2">{t("video_calls_note")}</p>
+                    <h3> {t("video_calls")}</h3>
+                    <p className="text-info f-2">{t("video_calls_note")}</p>
                   </Col>
                 </Row>
               </div>

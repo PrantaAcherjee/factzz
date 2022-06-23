@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { fetchListsDetailsStart } from "../../../store/actions/HomeAction";
 import { translate, t } from "react-multi-lang";
 import ListsLoader from "../../Loader/ListsLoader";
+import "./style.css";
 
 const ListIndex = (props) => {
   useEffect(() => {
@@ -14,39 +15,26 @@ const ListIndex = (props) => {
     <div className="lists">
       <Container>
         <Row>
-          <Col sm={12} md={12}>
-            {props.lists.loading ? (
-              <ListsLoader />
-            ) : (
-              <div className="vertical-menu">
-                <div className="bookmarkes-list bookmarks-right-side ">
-                  <div className="pull-left">
+        <div className="pull-left">
                     <Link
                       className="bookmarkes-list h2"
                       to={"/home"}
                       onClick={() => props.history.goBack()}
                     >
-                      <Image
-                        src={
-                          window.location.origin +
-                          "/assets/images/icons/back.svg"
-                        }
-                        className="svg-clone"
-                      />
-                      {t("lists")}
+                     <i style={{fontSize:'24px'}} class="fa-solid fa-hand-point-left"> </i> 
+                      <span style={{fontSize:'24px',paddingLeft:'5px'}}>List</span> 
                     </Link>
                   </div>
-                  {/* <div className="pull-right">
-                  <Link className="bookmarks-filter" to="#">
-                    <Image
-                      src="assets/images/icons/plus.svg"
-                      className="svg-clone"
-                      width=""
-                    />
-                  </Link>
-                </div> */}
-                </div>
-
+          <Col sm={12} md={12}>
+            {props.lists.loading ? (
+              <ListsLoader />
+            ) : (
+              <div className="vertical-menu">
+                
+                   
+ 
+                <div  className="list-style">
+              
                 <div className="user-lists">
                   <Link to={"/fans"}>
                     <div className="pull-left">
@@ -58,7 +46,6 @@ const ListIndex = (props) => {
                     <div className="pull-right"></div>
                   </Link>
                 </div>
-
                 <div className="user-lists">
                   <Link to={"/following"}>
                     <div className="pull-left">
@@ -102,15 +89,8 @@ const ListIndex = (props) => {
                     <div className="pull-right"></div>
                   </Link>
                 </div>
-                {/* <div className="user-lists">
-                <Link to="#">
-                  <div className="pull-left">
-                    <h3>Close Friends</h3>
-                    <span className="user-list-count">0 people</span>
-                  </div>
-                  <div className="pull-right"></div>
-                </Link>
-              </div> */}
+
+                </div> 
               </div>
             )}
           </Col>

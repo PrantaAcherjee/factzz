@@ -1,0 +1,29 @@
+.list-style{
+display: grid;
+grid-template-columns: auto auto auto;
+justify-content: space-around;
+align-items: center;
+}
+
+.user-lists{
+border: 3px solid #fff;
+margin: 3rem;
+padding:5rem 3rem;
+text-align: center;
+border-bottom: 4px solid blue;
+font-size: large;
+}
+.user-lists i{
+ color: rgb(66, 66, 216);
+ font-weight: 700;
+}
+
+@media(max-width:900px){
+.list-style{
+grid-template-columns: auto auto;
+ 
+} 
+.user-lists{
+margin: 0.5rem;
+}      
+}

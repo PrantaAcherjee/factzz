@@ -429,7 +429,7 @@ const UserChatIndex = (props) => {
                       >
                           <div>
 		                      <Image
-                          style={{width:'50px',height:'50px',borderRadius:'50%'}}
+                          style={{width:'50px',height:'50px',borderRadius:'50%',paddingLeft:'5px'}}
 	                       	src={props.chatMessages.data.user.picture}
                           alt='user-image'
 		                      />

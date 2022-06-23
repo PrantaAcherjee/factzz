@@ -75,7 +75,7 @@ const ProductList = (props) => {
                         <th>{t("product_details")}</th>
                         <th>{t("price")}</th>
                         <th>{t("quantity")}</th>
-                        <th>{t("in_stock")}</th>
+                        <th>{t("status")}</th>
                         <th className="text-center">{t("action")}</th>
                       </tr>
                     </thead>
@@ -112,6 +112,27 @@ const ProductList = (props) => {
                             </td>
                             <td>
                             <div className="product-list-action-icons">
+                              
+                              <Button
+                                type="button"
+                                className="view"
+                                href={"/single-product/" + product.unique_id}
+                              >
+                                <span>
+                                  <i className="fa fa-eye text-secondary"></i>
+                                </span>
+                              </Button>
+                              <Button
+                                type="button"
+                                className="edit"
+                                href={
+                                  "/edit-product/" + product.user_product_id
+                                }
+                              >
+                                <span>
+                                  <i className="fa fa-edit text-secondary"></i>
+                                </span>
+                              </Button>
                               <Button
                                 type="button"
                                 className="close"
@@ -130,28 +151,8 @@ const ProductList = (props) => {
                                   }
                                 }}
                               >
-                                <span aria-hidden="true">
-                                  <i className="fa fa-close"></i>
-                                </span>
-                              </Button>
-                              <Button
-                                type="button"
-                                className="view"
-                                href={"/single-product/" + product.unique_id}
-                              >
-                                <span>
-                                  <i className="fa fa-eye"></i>
-                                </span>
-                              </Button>
-                              <Button
-                                type="button"
-                                className="edit"
-                                href={
-                                  "/edit-product/" + product.user_product_id
-                                }
-                              >
-                                <span>
-                                  <i className="fa fa-edit"></i>
+                               <span aria-hidden="true">
+                              <i class="fa-regular fa-trash-can text-secondary"></i>
                                 </span>
                               </Button>
                               </div>

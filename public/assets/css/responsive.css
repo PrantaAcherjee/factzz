@@ -1827,10 +1827,7 @@ Version: 1.0
   .user-cover-img-sec .user-cover-img{
     height: 15em!important;
   }
-  /* .sidebar-social-links ul{
-    display: grid!important;
-    grid-template-columns: repeat(7, 1fr);
-  } */
+   
   .sidebar-social-links ul {
     display: flex!important;
     align-items: center!important;

@@ -1,0 +1,22 @@
+.vedio-call{
+ background-image: linear-gradient(310deg, rgb(33, 82, 255), rgb(2, 198, 243));
+ padding: 7.5rem 0;
+
+}
+
+.audio-vedio-history{
+ padding: 1.5rem 3rem;
+ background-color: rgb(136, 63, 204);
+ color: #fff;
+ border-radius: 25px;
+ border: none;
+ border-bottom: 4px solid cyan ;
+ font-weight: 700;
+ cursor: pointer;
+}
+.audio-vedio-history:hover{
+background-color: #fff;
+color: blueviolet;
+}
+
+ 

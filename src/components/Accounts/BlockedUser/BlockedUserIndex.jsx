@@ -56,14 +56,8 @@ const BlockedUserIndex = (props) => {
                       to={"/home"}
                       onClick={() => props.history.goBack()}
                     >
-                      <Image
-                        src={
-                          window.location.origin +
-                          "/assets/images/icons/back.svg"
-                        }
-                        className="svg-clone"
-                      />
-                      {t("blocked_users")}
+                      <i style={{fontSize:'24px'}} class="fa-solid fa-hand-point-left"> </i> 
+                      <span style={{fontSize:'24px',paddingLeft:'5px'}}>Blocked Users</span> 
                     </Link>
                   </h3>
                 </div>

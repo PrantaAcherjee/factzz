@@ -282,14 +282,15 @@ const CreatePostIndex = (props) => {
                         className="bookmarkes-list notify-title"
                         to={"/home"}
                       >
-                        <Image
+                        {/* <Image
                           src={
                             window.location.origin +
                             "/assets/images/icons/back.svg"
                           }
                           className="svg-clone"
-                        />
-                        {t("new_post")}
+                        /> */}
+                        <i style={{fontSize:'24px'}} class="fa-solid fa-hand-point-left"> </i> 
+                        <span style={{fontSize:'24px',paddingLeft:'5px'}}>New Post</span> 
                       </Link>
                     </div>
                     <div className="pull-right">

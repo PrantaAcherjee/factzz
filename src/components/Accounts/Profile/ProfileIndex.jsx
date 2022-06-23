@@ -114,14 +114,6 @@ const ProfileIndex = (props) => {
                 )
                     : <div className="new-home-box">
                         <div className="new-home-sidebar">
-                            <div className="profile-logo-sec">
-                                <Image
-                                    className="profile-logo-img"
-                                    // src={configuration.get("configData.site_logo")}
-                                    src="/assets/images/logo/App logo-03.png"
-                                    width="20%" height="20%"
-                                />
-                            </div>
                             <div className="sibebar-header-sec">
                                 {props.profile.data.featured_story ?
                                     <div className="sidebar-user-img-sec">

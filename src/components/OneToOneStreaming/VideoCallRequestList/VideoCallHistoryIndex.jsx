@@ -9,7 +9,6 @@ import {
   Badge,
   Image,
 } from "react-bootstrap";
-import "../../Wallet/Wallet.css";
 import NoDataFound from "../../NoDataFound/NoDataFound";
 import BillingAccountLoader from "../../Loader/BillingAccountLoader";
 import { translate, t } from "react-multi-lang";
@@ -65,27 +64,19 @@ const VideoCallHistoryIndex = (props) => {
 
   return (
     <>
-      <div className="wallet-sec">
+      <div className="vedio-call">
         <Container>
           <Row>
             <Col sm={12} md={12}>
               <div className="wallet-header-sec">
                 <Row>
                   <Col sm={12} md={12} xl={9}>
-                    <Link
-                      className="bookmarkes-list notify-title back-button"
+                  <Link
                       onClick={() => props.history.goBack()}
-                    >
-                      <Image
-                        src={
-                          window.location.origin +
-                          "/assets/images/icons/back.svg"
-                        }
-                        className="svg-clone"
-                      />
-                      {t("video_call_history")}
+                    >                      
+                      <button className="audio-vedio-history">Vedio Call History</button>
                     </Link>
-                    <p className="text-muted f-2">
+                    <p style={{color:'#fff',fontSize:'12px',paddingTop:'2rem'}}>
                       {t("video_call_history_note")}
                     </p>
                   </Col>
@@ -182,6 +173,7 @@ const VideoCallHistoryIndex = (props) => {
                               )}
                               {videoCall.payment_btn_status == 1 ? (
                                 <Button
+                                style={{borderRadius:'10px'}}
                                   className="btn btn-success mr-3 col-12 mb-2"
                                   onClick={(event) =>
                                     makePayment(event, videoCall)
@@ -208,6 +200,7 @@ const VideoCallHistoryIndex = (props) => {
 
                               {videoCall.start_btn_status == 1 ? (
                                 <Link
+                                style={{borderRadius:'10px'}}
                                   className="btn btn-success mr-3 col-12 mb-2"
                                   to={`/private-call/${videoCall.video_call_request_unique_id}`}
                                 >
@@ -219,6 +212,7 @@ const VideoCallHistoryIndex = (props) => {
 
                               {videoCall.end_btn_status == 1 ? (
                                 <Button
+                                style={{borderRadius:'10px'}}
                                   className="btn btn-danger mr-3 col-12 mb-2"
                                   onClick={() =>
                                     props.dispatch(
