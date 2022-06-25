@@ -9,21 +9,6 @@ const BookmarkNav = (props) => {
   return (
     <Col xs={12} sm={12} md={4}>
       <div className="vertical-menu">
-        <div
-          // activeClassName="active"
-          className="bookmarkes-list back-button"
-          // to={"/bookmarks"}
-        >
-          <Link to={"/list"}>
-            {/* <Image
-              src={window.location.origin + "/assets/images/icons/back.svg"}
-              className="svg-clone"
-            /> */}
-             <i style={{fontSize:'24px'}} class="fa-solid fa-hand-point-left"> </i> 
-             <span style={{fontSize:'24px',paddingLeft:'5px'}}>Bookmarks</span> 
-             </Link>
-        </div>
-
         <NavLink
           activeClassName="active"
           className="bookmarkes-list"

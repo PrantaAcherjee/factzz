@@ -20,6 +20,18 @@ const HeaderIndex = (props) => {
 
   const [loginModal, setLoginModal] = useState(false);
   const [signupModal, setSignupModal] = useState(false);
+  const [sticky, setSticky] = useState(false)
+
+  const stickyNav = () => {
+    if (window.scrollY >= 70) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', stickyNav);
+  }, []);
 
   useEffect(() => {
     console.log("Inside");
@@ -108,83 +120,37 @@ const HeaderIndex = (props) => {
     <>
       {localStorage.getItem("userId") ? (
        <Row>
+         {/* localStorage.getItem("is_content_creator") != 2 ? */}
+         {/* className={localStorage.getItem("is_content_creator") != 2 ?"main-header":"main-header-two"} */}
+
         <Col xs={12} sm={12}>
-        <header className="main-header">
-          <Container>
-            <nav className="main-header-menu">        
-                <Link
-                to={"/home"}
-                className="main-header-menu icon-with-round-hover m-current"
-                onClick={() => setIsVisible(false)}
-              >
+        <header className={localStorage.getItem("is_content_creator") != 2 ? "main-header" : "main-header-two active"}>
+        
+            <nav className={!sticky ? "main-header-menu" : "main-header-menu active"}>        
+            <Link
+              to={"/home"}
+              className="main-header-menu icon-with-round-hover m-current"
+              onClick={() => setIsVisible(false)}
+            >
                 <div>
                 <i class="fas fa-home"></i>
                  <span>{char[0]}</span>
                  </div>
-                  </Link>            
+                  </Link> 
+                  <div onClick={props.toggle} style={{ marginLeft: props.isOpen ? "30px" : "0px", cursor: 'pointer' }} className="bars">
+                  <i class="fas fa-bars-staggered"> </i>
+               </div>           
               <div className="header__right">
                 <div className="links">
-     
               
-               <div class="dropdown show">
-               <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <i class="fa-solid fa-circle-user"></i>
-               </a>
-
-               <div style={{width:'185px',marginTop:'14px',overflow:"hidden",background:'#fff'}}  class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">             
-               <Link style={{fontSize:'16px',fontWeight:'500'}} class="dropdown-item" to={"/explore"}><i class="fa-solid fa-arrows-rotate"></i> Explore More </Link> 
-               <hr/>
-               <Link style={{fontSize:'16px',fontWeight:'500'}} class="dropdown-item" to={"/live-videos"}><i class="fa-solid fa-arrows-rotate"></i> Live Videos</Link> 
-               <hr/>            
-               {
-                localStorage.getItem("is_content_creator") != 2 ?  <Link style={{fontSize:'16px',fontWeight:'500'}} class="dropdown-item"  to={"/become-a-content-creator"}><i class="fa-solid fa-arrows-rotate"></i> Content Creator</Link>
-    
-                :
-                <Link style={{fontSize:'16px',fontWeight:'500'}}class="dropdown-item"  to={"/add-post"}><i class="fa-solid fa-arrows-rotate"></i> Add Post</Link>
-               }             
-             </div>
-              </div>
-
- 
-                  <Link
-                    to={"/inbox"}
-                    className="main-header-menu icon-with-round-hover m-current"
-                    onClick={() => setIsVisible(false)}
-                  >
-                    {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/logo/Logo PNG.png"
-                    }
-                  /> */}
-                    <i class="fa-regular fa-envelope"></i>
-                    {/* <i class="fas fa-home"></i> */}
-                  </Link>
-                  {/* <Link
-                    to={"/inbox"}
-                    className="main-header-menu icon-with-round-hover"
-                    onClick={() => setIsVisible(false)}
-                  > */}
-                  {/* <Image
-                  src={window.location.origin + "/assets/images/icons/chat.svg"}
-                /> */}
-                  {/* <i className='fas fa-envolpe'></i> */}
-                  {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/new/mail-new.svg"
-                    }
-                  /> */}
-                  {/* <span className="main-header-menu__count"> 5 </span>  */}
-                  {/* {chatCount > 0 ? (
-                      <Badge variant="light" className="badge-notify">
-                        {chatCount}
-                      </Badge>
-                    ) : (
-                      ""
-                    )}
-                  </Link> */}
-
+               
+                   
+                    <Link to={"/"}
+                    
+                    className="main-header-menu icon-with-round-hover">             
+                 <i class="fa-solid fa-circle-user"></i>
+                  <span style={{paddingBottom:'2.5px',paddingLeft:'3px',fontWeight:'bold'}}>Sign in</span>
+                 </Link>
                   <Link
                     to={"/notification"}
                     className="main-header-menu icon-with-round-hover"
@@ -192,19 +158,7 @@ const HeaderIndex = (props) => {
                     exact-active-classname=""
                     onClick={() => setIsVisible(false)}
                   >
-                    {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/notification.svg"
-                    }
-                  /> */}
                     <i className='fas fa-bell'></i>
-                    {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/new/bell-new.svg"
-                    }
-                  /> */}
                     {bellCount > 0 ? (
                       <Badge variant="light" className="badge-notify">
                         {bellCount}
@@ -213,44 +167,62 @@ const HeaderIndex = (props) => {
                       ""
                     )}
                   </Link>
-                  <Button
-                    type="button"
-                    style={{marginLeft:'6px'}}
-                    className="main-header-menu icon-with-round-hover"
-                    to="#"
-                    data-drawer-trigger
-                    aria-controls="drawer-name"
-                    aria-expanded="false"
-                    onClick={() => setIsVisible(!isVisible)}
-                  >
-                    {/* <Image
-                  src={window.location.origin + "/assets/images/icons/user.svg"}
-                /> */}
-                    <i class="fa-solid fa-circle-chevron-down"></i>                   
-                    {/* <Image
-                    src={
-                      window.location.origin +
-                      "/assets/images/icons/new/user-new.svg"
-                    }
-                  /> */}
-                  </Button>
+                <div style={{marginLeft:'5px'}} class="dropdown show ">
+               <a class="dropdown-toggle main-header-menu icon-with-round-hover" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fa-solid fa-gear"></i>
+               </a>
+
+               <div style={{width:'150px',marginTop:'14px',overflow:"hidden",background:'#fff'}}  class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+
+               <Link style={{fontSize:'14px',fontWeight:'500'}} class="dropdown-item" to={"/explore"}> Explore more</Link> 
+               <hr/>
+
+              <Link style={{fontSize:'14px',fontWeight:'500'}} class="dropdown-item" to={"/inbox"}>Message</Link> 
+               <hr/>
+               <Link style={{fontSize:'14px',fontWeight:'500'}} class="dropdown-item" to={"/live-videos"}>  Live videos</Link> 
+               <hr/>            
+               {
+                localStorage.getItem("is_content_creator") != 2 ?  <Link style={{fontSize:'14px',fontWeight:'500'}} class="dropdown-item"  to={"/become-a-content-creator"}> Content creator</Link>
+    
+                :
+                <Link style={{fontSize:'14px',fontWeight:'500'}}class="dropdown-item"  to={"/add-post"}> Add post</Link>
+                
+               }  
+               <hr/>
+               {/* dark mode  */}
+               <div to="#" className="sidebar-menus-dark">
+                  <div className="toggle-mode">
+                    <div className="toggle-switch">
+                      <label className="switch">
+                        <input
+                          type="checkbox"
+                          id="switch-style"
+                          onChange={props.toggleTheme}
+                        />
+                        <div className="slider round" id="switch-style"></div>
+                      </label>
+                      <div className="toggle-label">
+                        <p>Dark Mode</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>          
+             </div>
+ 
+              </div>
+                   
                 </div>
               </div>
             </nav>
 
-            {/* {localStorage.getItem("is_document_verified") == 3 ? (
-                  <div className="pl-2">
-                    <Alert key={1} variant='danger'>
-                      The user updated documents decined by Admin.
-                    </Alert>
-                  </div>
-                ) : null} */}
-          </Container>
+            
+        
         </header>
         </Col>
        </Row>
       ) : (
         <Row>
+         
           <Col xs={12} sm={12}>
           <header className="main-header">
           <Container>
@@ -364,23 +336,9 @@ const HeaderIndex = (props) => {
                   </ul>
                 </div>
 
-                {/* <div className="pull-right">
-                  <span className="m-arrow">
-                    <Image
-                      src={
-                        window.location.origin +
-                        "/assets/images/icons/arrow-down.svg"
-                      }
-                      alt={configuration.get("configData.site_name")}
-                    />
-                  </span>
-                </div> */}
+                
               </div>
-              {/* <Button
-                className="drawer__close"
-                data-drawer-close
-                aria-label="Close Drawer"
-              ></Button> */}
+               
             </div>
             <div className="drawer__content">
               <div className="right-sidebar-menu-item">
@@ -569,7 +527,7 @@ const HeaderIndex = (props) => {
                 ) : (
                   ""
                 )}
-
+  {/* dark mode  */}
                 <div to="#" className="sidebar-menus-dark">
                   <div className="toggle-mode">
                     <div className="toggle-switch">

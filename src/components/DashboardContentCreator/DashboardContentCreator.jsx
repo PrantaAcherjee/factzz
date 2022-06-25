@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "./DashboardContentCreator.css";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchContentCreatorDashboardStart } from "../../store/actions/UserAction";
@@ -20,9 +20,9 @@ const DashboardContentCreator = (props) => {
     datasets: [
       {
         label: "Revenue",
-        backgroundColor: "rgba(75,192,192,1)",
-        borderColor: "rgba(0,0,0,1)",
-        borderWidth: 2,
+        backgroundColor:'rgb(52, 71, 103)',
+        borderColor: "rgb(52, 71, 103)",
+        borderWidth: 1,
         fill: true,
         data: props.dashboard.loading
           ? [65, 59, 80, 81, 56]
@@ -161,7 +161,7 @@ const DashboardContentCreator = (props) => {
                   <h3>{t('last_x_day_revenue')}</h3>
                   <div className="dashboard-chart-sec">
                     {/* <div> */}
-                    <Line data={state} legend={legend} options={options} />
+                    <Bar data={state} legend={legend} options={options} />
                     {/* </div> */}
                   </div>
                 </div>

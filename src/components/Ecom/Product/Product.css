@@ -28,7 +28,7 @@
 }
 
 .add-product-sec{
- margin-top: 80px;
+ margin-top: 35px;
  padding-bottom: 4em;
 }
 
@@ -155,28 +155,27 @@ display: none;
 /*Product List CSS*/
 
 .product-list-sec {
-margin-top: 80px;
+margin-top: 35px;
 padding-bottom: 4em;
 }
 
 .thead-primary{
-/* background: var(--primary-color); */
 background: linear-gradient(to right, #508990, #cbcaa5);
 }
 
 .empty-stock{
 background-color:rgb(230, 124, 124);
 color:rgb(225, 9, 9);
-padding: 0.5rem;
+padding: 0.2rem;
 border-radius: 0.5rem;
-font-weight: bold;
+/* font-weight: bold; */
 }
 .full-stock{
 background-color:rgb(101, 228, 101);
 color:green;
-padding: 0.5rem;
+padding: 0.2rem;
 border-radius: 0.5rem;
-font-weight: bold;
+/* font-weight: bold; */
 }
  
 
@@ -293,8 +292,7 @@ opacity: .75;
 
 .product-list-action-icons{
    display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content: center;
 }
 .addToCart{
    background-image: linear-gradient(310deg, rgb(33, 82, 255), rgb(33, 212, 253));

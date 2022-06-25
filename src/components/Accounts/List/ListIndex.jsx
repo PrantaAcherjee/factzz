@@ -15,16 +15,7 @@ const ListIndex = (props) => {
     <div className="lists">
       <Container>
         <Row>
-        <div className="pull-left">
-                    <Link
-                      className="bookmarkes-list h2"
-                      to={"/home"}
-                      onClick={() => props.history.goBack()}
-                    >
-                     <i style={{fontSize:'24px'}} class="fa-solid fa-hand-point-left"> </i> 
-                      <span style={{fontSize:'24px',paddingLeft:'5px'}}>List</span> 
-                    </Link>
-                  </div>
+        
           <Col sm={12} md={12}>
             {props.lists.loading ? (
               <ListsLoader />

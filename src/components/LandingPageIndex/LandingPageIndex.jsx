@@ -30,8 +30,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { ConnectedFocusError } from 'focus-formik-error';
 import "./LandingPage.css"
-// import logo from "/assets/images/logo/Logo PNG.png"
-
+ 
 const LandingPageIndex = (props) => {
   const [show, setShow] = useState("login");
   const [loginPasswordVisible, setLoginPasswordVisible] = useState(false);

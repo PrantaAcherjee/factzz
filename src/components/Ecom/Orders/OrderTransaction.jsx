@@ -34,7 +34,7 @@ const OrderTransaction = (props) => {
           <Row>
             <Col md={12}>
               <div className="table-wrap">
-                <Table responsive="md">
+                <Table responsive>
                   <thead className="thead-primary">
                     <tr>
                       <th className="text-center">{t("date")}</th>

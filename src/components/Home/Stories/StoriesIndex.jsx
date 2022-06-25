@@ -38,7 +38,7 @@ const StoriesIndex = (props) => {
                 <Row className="no-gutters">
                     <div className="profile-post-area">
                         <div className="bookmarkes-list bookmarks-right-side resp-sapce-center">
-                            <div className="pull-left">
+                            {/* <div className="pull-left">
                                 <Link className="bookmarkes-list notify-title back-button" to={`/home`}>
                                 <Image
                                     src={
@@ -48,7 +48,7 @@ const StoriesIndex = (props) => {
                                 />
                                 {t("stories")}
                                 </Link>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
          

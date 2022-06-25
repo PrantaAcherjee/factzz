@@ -10,7 +10,7 @@ import { Col, Row } from "react-bootstrap";
 
 const MainLayout = (props) => {
   let history = useHistory();
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('userLoginStatus'))
+  const [isContentCreator, setIsContentCreator] = useState(null)
 
   const [themeState, setThemeState] = useState(false);
 
@@ -28,42 +28,53 @@ const MainLayout = (props) => {
     }
   }, [props.profile]);
   useEffect(() => {
-    if (localStorage.getItem('userLoginStatus') === "true") {
-      setIsLoggedIn(true)
+    if (localStorage.getItem('is_content_creator') != 2) {
+      setIsContentCreator(false)
     }
     else {
-      setIsLoggedIn(false)
+      setIsContentCreator(true)
     }
   }, [])
- 
 
-   
-  console.log(isLoggedIn)
+  const [isOpen, setIsOpen] = useState(true);
+  const toggle = () => setIsOpen(!isOpen);
+
   return (
-    <div style={{overflow:'hidden'}}  className={`${themeState ? "dark-mode" : ""}`} >
+    <div style={{ overflow: 'hidden' }} className={`${themeState ? "dark-mode" : ""}`} >
       <div className="app-admin-wrap layout-sidebar-large">
         <Notify position="TopRight" />
+         
         <Row>
-        <HeaderIndex toggleTheme={toggleClass} />
-          {/* <Col xl={2} md={2} sm={4}xs={4} style={{marginTop:'4rem'}}>
-          {localStorage.getItem("is_content_creator") != 2 ? (
-                 ""  
-                ) : (
-                  <SideNav />                 
-                )}        
-          </Col> */}
-
-          <Col xl={12} md={12}>
-          <div style={{marginTop:'1.5rem',overflow:'hidden'}}    className="main-content-wrap sidenav-open d-flex flex-column">
-          <div className="main-wrap-sec">
-            {React.cloneElement(props.children)}
-          </div>
-          {/* <LatestFooter /> */}
-        </div>
-          </Col>       
-        </Row>  
+          {!isContentCreator ? (
+            null) : (
+            <Col xl={2} sm={2} md={2}>
+              {!isContentCreator ? (
+                null
+              ) : (
+                <SideNav toggleTheme={toggleClass} isOpen={isOpen} toggle={toggle}/>
+              )}
+            </Col>
+          )
+          }
+          
+          <Col
+            sm={isContentCreator ? (9) : (12)}
+            md={isContentCreator ? (9) : (12)}
+            xl={isContentCreator ? (9) : (12)}
+             className="main_content">
+           
+            <div style={{ marginTop: '6rem', overflow: 'hidden' }} className="main-content-wrap sidenav-open d-flex flex-column">
+            
+            <HeaderIndex toggleTheme={toggleClass} isOpen={isOpen} toggle={toggle}/>
+            
+              <div className="main-wrap-sec">            
+                {React.cloneElement(props.children)}
+              </div>
+            </div>
+            <LatestFooter />
+          </Col>
+        </Row>
       </div>
-      <LatestFooter />
     </div>
   );
 }

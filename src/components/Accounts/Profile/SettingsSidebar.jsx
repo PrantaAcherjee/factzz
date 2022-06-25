@@ -358,6 +358,7 @@ const SettingsSidebar = (props) => {
                                     Change Password
                                 </Link>
                             </Media>
+                           
                             <Media as="li">
                                 <Link to="/delete-account">
                                     <Image
@@ -369,6 +370,19 @@ const SettingsSidebar = (props) => {
                                     Delete Account
                                 </Link>
                             </Media>
+                            {/* dark mode start */}
+                            {/* <Media as="li">
+                                <Link to="/change-password">
+                                    <Image
+                                        className="new-setting-list-icon"
+                                        src={
+                                            window.location.origin + "/assets/images/new-settings/change-password.png"
+                                        }
+                                    />
+                                    Dark Mode
+                                </Link>
+                            </Media> */}
+                            {/* dark mode end  */}
                         </ul>
                     </div>
                     <div className="new-settings-sidebar-link-sec">

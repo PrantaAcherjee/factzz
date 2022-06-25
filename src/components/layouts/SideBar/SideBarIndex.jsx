@@ -54,13 +54,7 @@ const SideBarIndex = ({ toggleClass }) => {
             <div className="triangle"></div>
           </li>
 
-          {/* <li className="nav-item">
-            <NavLink className="nav-item-hold" to={"/recordings"}>
-              <i className="nav-icon i-Gears"></i>
-              <span className="nav-text">Recordings</span>
-            </NavLink>
-            <div className="triangle"></div>
-          </li> */}
+           
 
           <li className="nav-item">
             <NavLink className="nav-item-hold" to={"/profile"}>

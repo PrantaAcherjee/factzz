@@ -432,14 +432,14 @@ const ProfileIndex = (props) => {
                                     props.profile.data.facebook_link ||
                                     props.profile.data.twitch_link ||
                                     props.profile.data.website ?
-                                    <div className="sidebar-social-links">
-                                        <ul className="list-unstyled">
-                                            {props.profile.data.youtube_link && (
+                        <div className="sidebar-social-links">
+                        <ul className="list-unstyled">
+                         {props.profile.data.youtube_link && (
                                                 <Media as="li">
                                                     <a href={props.profile.data.youtube_link} target="_blank">
-                                                        <Image
-                                                            className="sidebar-social-links-icon"
-                                                            src={
+                                     <Image
+                                 className="sidebar-social-links-icon"
+                                      src={
                                                                 window.location.origin + "/assets/images/new-home/icon/you-tube.png"
                                                             }
                                                         />
@@ -449,10 +449,10 @@ const ProfileIndex = (props) => {
                                             {props.profile.data.pinterest_link && (
                                                 <Media as="li">
                                                     <a href={props.profile.data.pinterest_link} target="_blank">
-                                                        <Image
-                                                            className="sidebar-social-links-icon"
-                                                            src={
-                                                                window.location.origin + "/assets/images/new-home/icon/pintrest.png"
+                              <Image
+             className="sidebar-social-links-icon"
+            src={
+         window.location.origin + "/assets/images/new-home/icon/pintrest.png"
                                                             }
                                                         />
                                                     </a>
@@ -509,9 +509,9 @@ const ProfileIndex = (props) => {
                                             {props.profile.data.amazon_wishlist && (
                                                 <Media as="li">
                                                     <a href={props.profile.data.amazon_wishlist} target="_blank">
-                                                        <Image
-                                                            className="sidebar-social-links-icon"
-                                                            src={
+                         <Image
+                         className="sidebar-social-links-icon"
+                             src={
                                                                 window.location.origin + "/assets/images/new-home/icon/amazon.png"
                                                             }
                                                         />
@@ -521,8 +521,8 @@ const ProfileIndex = (props) => {
                                             {props.profile.data.facebook_link && (
                                                 <Media as="li">
                                                     <a href={props.profile.data.facebook_link} target="_blank">
-                                                        <Image
-                                                            className="sidebar-social-links-icon"
+                 <Image
+                 className="sidebar-social-links-icon"
                                                             src={
                                                                 window.location.origin + "/assets/images/new-home/icon/facebook.png"
                                                             }
@@ -583,33 +583,33 @@ const ProfileIndex = (props) => {
                                     }
                                 </div>
                             </div>
-                            <div className="user-right-content-sec">
-                                <div className="user-right-info">
-                                    <div className="user-info-desc">
-                                        <p>
-                                            {props.profile.data.about_formatted}
+                    <div className="user-right-content-sec">
+                    <div className="user-right-info">
+                    <div className="user-info-desc">
+                    <p>
+                    {props.profile.data.about_formatted}
                                             {/* <a href="#">Read More</a> */}
                                         </p>
-                                    </div>
-                                    <div className="user-info-list">
-                                        <ul className="list-unstyled">
-                                            {props.profile.data.selected_category &&
-                                                <Media as="li">
-                                                    <Link to="#">
-                                                        <Image
-                                                            className="user-info-icon"
-                                                            src={window.location.origin + "/assets/images/new-home/icon/fashion.png"}
+                    </div>
+                     <div className="user-info-list">
+                    <ul className="list-unstyled">
+                     {props.profile.data.selected_category &&
+                    <Media as="li">
+                     <Link to="#">
+                    <Image
+                     className="user-info-icon"
+                     src={window.location.origin + "/assets/images/new-home/icon/fashion.png"}
                                                         />
-                                                        <span>{props.profile.data.selected_category.name}</span>
-                                                    </Link>
-                                                </Media>
+                    <span>{props.profile.data.selected_category.name}</span>
+                    </Link>
+                    </Media>
                                             }
-                                            {props.profile.data.date_of_birth &&
-                                                <Media as="li">
-                                                    <Link to="#">
-                                                        <Image
-                                                            className="user-info-icon"
-                                                            src={
+                    {props.profile.data.date_of_birth &&
+                     <Media as="li">
+                  <Link to="#">
+                  <Image
+                className="user-info-icon"
+                    src={
                                                                 window.location.origin + "/assets/images/new-home/icon/date-icon.png"
                                                             }
                                                         />
@@ -644,9 +644,9 @@ const ProfileIndex = (props) => {
                                                 </Media>
                                             }
                                             {props.profile.data.height_formatted &&
-                                                <Media as="li">
-                                                    <Link to="#">
-                                                        <Image
+            <Media as="li">
+                <Link to="#">
+    <Image
                                                             className="user-info-icon"
                                                             src={
                                                                 window.location.origin + "/assets/images/new-home/icon/scale.png"
@@ -670,27 +670,30 @@ const ProfileIndex = (props) => {
                                                 </Media>
                                             }
                                         </ul>
-                                    </div>
-                                </div>
-                                <div className="user-subscription-plans-details">
-                                    <h3>My Subscription Plans</h3>
-                                    {props.profile.data.payment_info?.is_free_account == "0" ?
-                                        <div className="user-subscription-btn-sec">
-                                            <div className="profile-subscription-btn">
-                                                {props.profile.data.payment_info.subscription_info.monthly_amount_formatted} /Month
-                                            </div>
-                                            <div className="profile-subscription-btn">
-                                                {props.profile.data.payment_info.subscription_info.yearly_amount_formatted} /Year
-                                            </div>
-                                        </div>
-                                        : <div className="user-subscription-btn-sec">
-                                            <div className="profile-subscription-btn">
-                                                Free Subscription
-                                            </div>
-                                        </div>
-                                    }
-                                </div>
-                            </div>
+                    </div>
+
+                    <div className="user-subscription-plans-details">
+    <h3>My Subscription Plans</h3>
+   {props.profile.data.payment_info?.is_free_account == "0" ?
+   <div className="user-subscription-btn-sec">
+<div className="profile-subscription-btn">
+{props.profile.data.payment_info.subscription_info.monthly_amount_formatted} /Month
+</div>
+<div className="profile-subscription-btn">
+{props.profile.data.payment_info.subscription_info.yearly_amount_formatted} /Year
+</div>
+</div>
+: <div className="user-subscription-btn-sec">
+<div className="profile-subscription-btn">
+Free Subscription
+</div>
+</div>
+}
+   </div>
+
+                    </div>
+ 
+                     </div>
                             <div className="mobile-display">
                                 <div className="sidebar-links">
                                     <ul className="list-unstyled">
@@ -983,11 +986,10 @@ const ProfileIndex = (props) => {
                                                 </div>
                                                 : <>
                                                     {props.posts.data.posts.length > 0 ?
-                                                        <InfiniteScroll
-                                                            dataLength={props.posts.data.posts.length}
-                                                            next={fetchMorePost}
-                                                            hasMore={props.posts.data.posts.length < props.posts.data.total}
-                                                            loader={
+                <InfiniteScroll
+    dataLength={props.posts.data.posts.length}
+     next={fetchMorePost}   hasMore={props.posts.data.posts.length < props.posts.data.total}
+     loader={
                                                                 <div className="profile-all-post-box">
                                                                     {[...Array(4)].map(() =>
                                                                         <Skeleton

@@ -19,10 +19,7 @@ const EditProfileTabSec = (props) => {
         <Link
           to={"/edit-profile"}
           className="bookmarkes-list text-transform-none"
-          // aria-controls="profile"
-          // role="tab"
-          // data-toggle="tab"
-          // onClick={() => props.setActiveSec("settings-card")}
+          
         >
           <Image
             src={window.location.origin + "/assets/images/icons/back.svg"}

@@ -18,7 +18,7 @@ const BillingAccountIndex = (props) => {
   }, []);
   return (
     <>
-      <div className="wallet-sec">
+      <div className="vedio-call">
         <Container>
           <Row>
             <Col sm={12} md={12}>
@@ -26,26 +26,20 @@ const BillingAccountIndex = (props) => {
                 <Row>
                   <Col sm={12} md={12} xl={9}>
                     <Link
-                      className="bookmarkes-list notify-title back-button"
                       onClick={() => props.history.goBack()}
                     >
-                      <img
-                        src={
-                          window.location.origin +
-                          "/assets/images/icons/back.svg"
-                        }
-                        className="svg-clone"
-                      />
-                      <h3 className="ml-2 mb-0">{t("billing_accounts")}</h3>
+                      <button className="audio-vedio-history">{t("Billings Account")}</button>      
                     </Link>
-                    <p className="text-muted f-2">
+
+                    <p style={{paddingTop:"2rem",color:'#fff',fontSize:'12px'}}>
                       {t("billing_accounts_para")}
                     </p>
+
                   </Col>
                   <Col sm={12} md={12} xl={3}>
                     <div className="edit-save">
-                      <Link className="receive-btn-blue" to={"/add-bank"}>
-                        {t("add_new_account")}
+                      <Link to={"/add-bank"}>
+                        <button className="audio-vedio-history">{t("add_new_account")}</button>                       
                       </Link>
                     </div>
                   </Col>

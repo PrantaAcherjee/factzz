@@ -64,7 +64,7 @@ const VideoCallRequestSentIndex = (props) => {
 
   return (
     <>
-      <div className="wallet-sec">
+      <div className="vedio-call">
         <Container>
           <Row>
             <Col sm={12} md={12}>
@@ -72,19 +72,13 @@ const VideoCallRequestSentIndex = (props) => {
                 <Row>
                   <Col sm={12} md={12} xl={9}>
                     <Link
-                      className="bookmarkes-list notify-title back-button"
+                       
                       onClick={() => props.history.goBack()}
                     >
-                      <Image
-                        src={
-                          window.location.origin +
-                          "/assets/images/icons/back.svg"
-                        }
-                        className="svg-clone"
-                      />
-                      {t("video_call_request_sent")}
+                       <button className="audio-vedio-history">{t("video_call_request_sent")}</button>  
+                      
                     </Link>
-                    <p className="text-muted f-2">{t("video_calls_note")}</p>
+                    <p style={{paddingTop:"2rem",color:'#fff',fontSize:'12px'}}>{t("video_calls_note")}</p>
                   </Col>
                 </Row>
               </div>
@@ -160,6 +154,7 @@ const VideoCallRequestSentIndex = (props) => {
                               )}
                               {videoCall.reject_btn_status == 1 ? (
                                 <Button
+                                style={{borderRadius:'5px'}}
                                   className="btn btn-sm btn-danger  mr-3"
                                   onClick={() =>
                                     props.dispatch(
@@ -177,6 +172,7 @@ const VideoCallRequestSentIndex = (props) => {
                               )}
                               {videoCall.payment_btn_status == 1 ? (
                                 <Button
+                                style={{borderRadius:'5px'}}
                                   className="btn btn-success mr-3"
                                   onClick={(event) =>
                                     makePayment(event, videoCall)
@@ -190,6 +186,7 @@ const VideoCallRequestSentIndex = (props) => {
 
                               {videoCall.join_btn_status == 1 ? (
                                 <Link
+                                style={{borderRadius:'5px'}}
                                   className="btn btn-success mr-3"
                                   to={`/private-call/${videoCall.video_call_request_unique_id}`}
                                 >
@@ -201,6 +198,7 @@ const VideoCallRequestSentIndex = (props) => {
 
                               {videoCall.start_btn_status == 1 ? (
                                 <Link
+                                style={{borderRadius:'5px'}}
                                   className="btn btn-success mr-3"
                                   to={`/private-call/${videoCall.video_call_request_unique_id}`}
                                 >
@@ -212,6 +210,7 @@ const VideoCallRequestSentIndex = (props) => {
 
                               {videoCall.end_btn_status == 1 ? (
                                 <Button
+                                style={{borderRadius:'5px'}}
                                   className="btn btn-danger mr-3"
                                   onClick={() =>
                                     props.dispatch(

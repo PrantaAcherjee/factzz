@@ -160,7 +160,7 @@ const ProductList = (props) => {
                                 to={`/view-order/${product.unique_id}/${product.user_product_id}`}
                                 className="single-orders-view"
                               >
-                                <span>{t("view_orders")}</span>
+                                <span>{t("orders")}</span>
                               </Link>
                               <Link
                                 to={`/product-gallery/${product.unique_id}/${product.user_product_id}`}

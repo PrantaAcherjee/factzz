@@ -8,15 +8,11 @@ import {
 export const getSuccessNotificationMessage = (message) => {
   return {
     message: message,
-    type: NOTIFICATION_TYPE_INFO,
+    type: NOTIFICATION_TYPE_SUCCESS,
     duration: 1500,
     canDismiss: true,
     icon: <i className="fa fa-check" />,
-    // customStyles: {
-    //   // close: "SuccessNotify-Close",
-    //   // item__message: "SuccessNotify-message",
-    //   // "notification--success": "SuccessNotify",
-    // },
+     
   };
 };
 

@@ -188,7 +188,7 @@ const AddProduct = (props) => {
             <Stepper activeStep={activeStep} alternativeLabel>
               {steps.map((label) => (
                 <Step key={label}>
-                  <StepLabel style={{color:'blue',fontSize:'24px'}}>{label}</StepLabel>
+                  <StepLabel>{label}</StepLabel>
                 </Step>
               ))}
             </Stepper>
